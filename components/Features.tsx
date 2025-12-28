@@ -151,7 +151,7 @@ export default function Features() {
             return (
               <div
                 key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
+                ref={(el) => { cardRefs.current[index] = el; }}
                 data-index={index}
                 className={`group relative bg-gradient-to-br from-neutral-offwhite to-neutral-light dark:from-neutral-dark/80 dark:to-neutral-dark rounded-2xl p-8 border border-neutral-medium/20 dark:border-white/10 hover:border-primary-turquoise/50 dark:hover:border-primary-light/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 overflow-hidden ${
                   isVisible
