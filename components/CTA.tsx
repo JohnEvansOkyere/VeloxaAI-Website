@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CTA() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [counts, setCounts] = useState([0, 0, 0]);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,6 +19,59 @@ export default function CTA() {
       setEmail("");
     }, 3000);
   };
+
+  const ctaStats = [
+    { startRange: 60, endRange: 80, suffix: "%", isRange: true },
+    { value: 100, suffix: "%", isRange: false },
+    { value: 24, suffix: "/7", isRange: false },
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setCounts(ctaStats.map((stat) => {
+        if (stat.isRange) {
+          return Math.floor(stat.startRange + (stat.endRange - stat.startRange) * progress);
+        } else {
+          return Math.floor(stat.value * progress);
+        }
+      }));
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+      }
+    }, stepDuration);
+
+    return () => clearInterval(interval);
+  }, [isVisible]);
 
   return (
     <section id="cta" className="section-padding bg-gradient-to-br from-primary-turquoise to-primary-teal relative overflow-hidden">
@@ -41,17 +97,19 @@ export default function CTA() {
         </p>
 
         {/* Social Proof Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <div className="text-4xl font-bold text-white mb-2">60-80%</div>
+            <div className="text-4xl font-bold text-white mb-2">
+              {ctaStats[0].isRange ? `${counts[0]}-${ctaStats[0].endRange}${ctaStats[0].suffix}` : `${counts[0]}${ctaStats[0].suffix}`}
+            </div>
             <div className="text-white/80 font-medium">Faster hiring process</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <div className="text-4xl font-bold text-white mb-2">100%</div>
+            <div className="text-4xl font-bold text-white mb-2">{counts[1]}{ctaStats[1].suffix}</div>
             <div className="text-white/80 font-medium">Unbiased assessments</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <div className="text-4xl font-bold text-white mb-2">24/7</div>
+            <div className="text-4xl font-bold text-white mb-2">{counts[2]}{ctaStats[2].suffix}</div>
             <div className="text-white/80 font-medium">Automated interviews</div>
           </div>
         </div>

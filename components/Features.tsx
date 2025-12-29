@@ -25,7 +25,7 @@ export default function Features() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [showAll]);
 
   const features = [
     {
