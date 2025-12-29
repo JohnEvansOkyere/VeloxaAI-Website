@@ -75,11 +75,12 @@ export default function Stats() {
       const progress = currentStep / steps;
 
       setCounts(stats.map((stat) => {
-        if (stat.isRange) {
+        if (stat.isRange && stat.startRange !== undefined && stat.endRange !== undefined) {
           return Math.floor(stat.startRange + (stat.endRange - stat.startRange) * progress);
-        } else {
+        } else if (!stat.isRange && stat.value !== undefined) {
           return Math.floor(stat.value * progress);
         }
+        return 0;
       }));
 
       if (currentStep >= steps) {
