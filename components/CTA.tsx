@@ -104,7 +104,9 @@ export default function CTA() {
         <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="text-4xl font-bold text-white mb-2">
-              {ctaStats[0].isRange ? `${counts[0]}-${ctaStats[0].endRange}${ctaStats[0].suffix}` : `${counts[0]}${ctaStats[0].suffix}`}
+              {ctaStats[0].isRange && ctaStats[0].startRange !== undefined && ctaStats[0].endRange !== undefined
+                ? `${ctaStats[0].startRange}-${ctaStats[0].endRange}${ctaStats[0].suffix}`
+                : `${counts[0]}${ctaStats[0].suffix}`}
             </div>
             <div className="text-white/80 font-medium">Faster hiring process</div>
           </div>

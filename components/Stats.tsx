@@ -102,8 +102,8 @@ export default function Stats() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="font-display font-bold text-4xl md:text-5xl gradient-text mb-2">
-                {stat.isRange
-                  ? `${counts[index]}-${stat.endRange}${stat.suffix}`
+                {stat.isRange && stat.startRange !== undefined && stat.endRange !== undefined
+                  ? `${stat.startRange}-${stat.endRange}${stat.suffix}`
                   : `${counts[index]}${stat.suffix}`
                 }
               </div>
