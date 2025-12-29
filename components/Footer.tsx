@@ -14,7 +14,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-xl">V</span>
               </div>
               <span className="font-display font-bold text-2xl">
-                Veloxa<span className="text-primary-turquoise">AI</span>
+                Veloxa <span className="text-primary-turquoise">Technologies Ltd.</span>
               </span>
             </div>
             <p className="text-white/70 mb-6 max-w-md">
@@ -120,7 +120,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © {currentYear} VeloxaAI. All rights reserved.
+              © {currentYear} Veloxa Technologies Ltd. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-white/60 hover:text-primary-turquoise transition-colors">

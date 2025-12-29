@@ -1,6 +1,6 @@
-# VeloxaAI Website
+# Veloxa Technologies Ltd. Website
 
-Modern, professional website for VeloxaAI showcasing VeloxaRecruit - our AI-powered recruitment platform.
+Modern, professional website for Veloxa Technologies Ltd. showcasing VeloxaRecruit - our AI-powered recruitment platform.
 
 ## Design
 
@@ -178,14 +178,14 @@ npm run build
 
 ## Contact
 
-- Email: hello@veloxaai.com
+- Email: hello@veloxatech.com
 - Phone: +1 (555) 123-4567
 - Website: Coming Soon
 
 ## License
 
-Copyright 2025 VeloxaAI. All rights reserved.
+Copyright 2025 Veloxa Technologies Ltd. All rights reserved.
 
 ---
 
-Built by the VeloxaAI Team
+Built by the Veloxa Technologies Ltd. Team

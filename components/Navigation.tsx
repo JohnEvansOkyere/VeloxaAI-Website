@@ -31,7 +31,7 @@ export default function Navigation() {
                 <span className="text-white font-bold text-xl">V</span>
               </div>
               <span className="font-display font-bold text-2xl text-neutral-dark dark:text-neutral-offwhite">
-                Veloxa<span className="text-primary-turquoise dark:text-primary-light">AI</span>
+                Veloxa <span className="text-primary-turquoise dark:text-primary-light">Technologies Ltd.</span>
               </span>
             </a>
           </div>

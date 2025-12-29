@@ -1,7 +1,7 @@
 {
-  "name": "veloxa-website",
+  "name": "veloxa-technologies-website",
   "version": "1.0.0",
-  "description": "VeloxaAI - Modern recruitment platform website",
+  "description": "Veloxa Technologies Ltd. - Modern recruitment platform website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
