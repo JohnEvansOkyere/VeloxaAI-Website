@@ -7,7 +7,10 @@ export default function Stats() {
   const [counts, setCounts] = useState([0, 0, 0, 0]);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const stats = [
+  const stats: Array<
+    | { startRange: number; endRange: number; label: string; description: string; suffix: string; isRange: true; value?: never }
+    | { value: number; label: string; description: string; suffix: string; isRange: false; startRange?: never; endRange?: never }
+  > = [
     {
       startRange: 60,
       endRange: 80,
@@ -71,7 +74,7 @@ export default function Stats() {
       currentStep++;
       const progress = currentStep / steps;
 
-      setCounts(stats.map((stat, index) => {
+      setCounts(stats.map((stat) => {
         if (stat.isRange) {
           return Math.floor(stat.startRange + (stat.endRange - stat.startRange) * progress);
         } else {

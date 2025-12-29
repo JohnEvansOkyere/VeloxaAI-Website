@@ -20,7 +20,10 @@ export default function CTA() {
     }, 3000);
   };
 
-  const ctaStats = [
+  const ctaStats: Array<
+    | { startRange: number; endRange: number; suffix: string; isRange: true; value?: never }
+    | { value: number; suffix: string; isRange: false; startRange?: never; endRange?: never }
+  > = [
     { startRange: 60, endRange: 80, suffix: "%", isRange: true },
     { value: 100, suffix: "%", isRange: false },
     { value: 24, suffix: "/7", isRange: false },
