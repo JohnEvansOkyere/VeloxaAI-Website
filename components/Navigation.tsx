@@ -63,6 +63,12 @@ export default function Navigation() {
               Benefits
             </a>
             <a
+              href="#about"
+              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+            >
+              About
+            </a>
+            <a
               href="#pricing"
               className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
             >
@@ -137,6 +143,20 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Benefits
+              </a>
+              <a
+                href="#about"
+                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a
+                href="#pricing"
+                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing
               </a>
               <a
                 href="#cta"
