@@ -5,6 +5,7 @@ import Product from "@/components/Product";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Benefits from "@/components/Benefits";
+import Pricing from "@/components/Pricing";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <Benefits />
+      <Pricing />
       <CTA />
       <Footer />
     </main>

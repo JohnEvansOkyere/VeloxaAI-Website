@@ -63,6 +63,12 @@ export default function Navigation() {
               Benefits
             </a>
             <a
+              href="#pricing"
+              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+            >
+              Pricing
+            </a>
+            <a
               href="#cta"
               className="bg-gradient-to-r from-primary-turquoise to-primary-teal text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
