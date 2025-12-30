@@ -164,16 +164,16 @@ export default function Features() {
                 }}
               >
                 {/* Animated background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-turquoise/0 via-primary-teal/0 to-accent-yellow/0 group-hover:from-primary-turquoise/5 group-hover:via-primary-teal/5 group-hover:to-accent-yellow/5 transition-all duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/0 to-white/0 dark:from-white/0 dark:via-white/0 dark:to-white/0 group-hover:from-white/40 group-hover:via-white/20 group-hover:to-white/40 dark:group-hover:from-white/5 dark:group-hover:via-white/3 dark:group-hover:to-white/5 transition-all duration-500 rounded-2xl"></div>
 
                 {/* Glow orb effect */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary-turquoise/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/30 dark:bg-white/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
                   <div className="w-14 h-14 bg-gradient-to-br from-primary-turquoise to-primary-teal rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
                     {feature.icon}
                   </div>
-                  <h3 className="font-display font-bold text-xl text-neutral-dark dark:text-neutral-offwhite mb-3 group-hover:text-primary-turquoise dark:group-hover:text-primary-light transition-colors duration-300">
+                  <h3 className="font-display font-bold text-xl text-neutral-dark dark:text-neutral-offwhite mb-3 transition-colors duration-300">
                     {feature.title}
                   </h3>
                   <p className="text-neutral-dark/70 dark:text-neutral-offwhite/70 leading-relaxed text-sm">

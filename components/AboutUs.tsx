@@ -197,7 +197,7 @@ export default function AboutUs() {
         }
 
         .animate-infinite-scroll {
-          animation: infinite-scroll 30s linear infinite;
+          animation: infinite-scroll 5s linear infinite;
         }
 
         .pause-animation:hover {
