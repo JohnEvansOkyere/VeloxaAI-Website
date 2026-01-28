@@ -130,7 +130,7 @@ export default function CTA() {
           <div className="space-y-8">
             <div
               ref={statsRef}
-              className="grid grid-cols-3 gap-4 bg-navy-900/60 border border-white/10 rounded-2xl p-6"
+              className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-navy-900/60 border border-white/10 rounded-2xl p-6"
             >
               {ctaStats.map((stat, idx) => (
                 <div key={stat.label} className="text-left">
