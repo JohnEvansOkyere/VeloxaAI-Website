@@ -6,9 +6,9 @@ export default function AboutUs() {
   const team = [
     {
       name: "John Evans Okyere",
-      position: "Co-Founder",
-      role: "AI/ML Engineer",
-      company: "Punch Group",
+      position: "Founder & CEO",
+      role: "",
+      company: "",
       image: "/images/john-evans-profile.jpg",
       linkedin: "https://www.linkedin.com/in/john-evans-okyere/",
       github: "https://github.com/JohnEvansOkyere",
@@ -16,9 +16,9 @@ export default function AboutUs() {
     },
     {
       name: "Adeola Deborah",
-      position: "Co-Founder",
-      role: "Data Analyst",
-      company: "Company Name",
+      position: "Co-Founder & COO",
+      role: "",
+      company: "",
       image: "/images/placeholder-profile.jpg",
       linkedin: "#",
       github: "#",
@@ -27,18 +27,18 @@ export default function AboutUs() {
     {
       name: "Kelvin Awuku Boateng",
       position: "Co-Founder",
-      role: "Data Engineer",
-      company: "Bosonit",
+      role: "",
+      company: "",
       image: "/images/placeholder-profile.jpg",
       linkedin: "#",
       github: "#",
       twitter: "#",
     },
     {
-      name: "Team Member 4",
-      position: "Position Title",
-      role: "Role Title",
-      company: "Company Name",
+      name: "Jehiel",
+      position: "Media Lead",
+      role: "",
+      company: "",
       image: "/images/placeholder-profile.jpg",
       linkedin: "#",
       github: "#",
@@ -103,12 +103,6 @@ export default function AboutUs() {
                       </h3>
                       <p className="text-primary-cyan font-semibold mb-1">
                         {member.position}
-                      </p>
-                      <p className="text-white/60 text-sm mb-1">
-                        {member.role}
-                      </p>
-                      <p className="text-white/40 text-sm">
-                        {member.company}
                       </p>
                     </div>
 
@@ -177,9 +171,9 @@ export default function AboutUs() {
             Our Mission
           </h3>
           <p className="text-navy-900 text-xl font-medium max-w-4xl mx-auto leading-relaxed">
-            To architect the autonomous future. We believe that by embedding intelligence into every business process, 
-            we can unlock unprecedented levels of human creativity and industrial efficiency. Veloxa is here to 
-            bridge the gap between current operational constraints and the limitless potential of AI.
+            We build AI and automation for Africa—technology that removes friction from everyday work and gives people
+            back time to think, create, and lead. Veloxa exists so African businesses don&apos;t just adapt to the
+            future, but shape it on their own terms.
           </p>
         </div>
       </div>
@@ -195,7 +189,7 @@ export default function AboutUs() {
         }
 
         .animate-infinite-scroll {
-          animation: infinite-scroll 5s linear infinite;
+          animation: infinite-scroll 25s linear infinite;
         }
 
         .pause-animation:hover {
