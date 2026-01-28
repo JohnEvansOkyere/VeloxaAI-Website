@@ -23,7 +23,7 @@ body {
 
   /* Consistent Section Spacing */
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-16 md:py-20;
   }
 
   /* Typography Scale - Headings */
