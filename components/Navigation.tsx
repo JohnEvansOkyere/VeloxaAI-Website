@@ -26,7 +26,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center space-x-2">
+            <a href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-cyan to-primary-blue rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.5)]">
                 <span className="text-navy-950 font-bold text-xl">V</span>
               </div>
@@ -38,6 +38,12 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="/"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
+            >
+              Home
+            </a>
             <a
               href="#platforms"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
@@ -104,6 +110,13 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 animate-slide-down bg-navy-950 border-t border-white/5">
             <div className="flex flex-col space-y-4">
+              <a
+                href="/"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </a>
               <a
                 href="#platforms"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"

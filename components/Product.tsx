@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Product() {
@@ -111,13 +112,39 @@ export default function Product() {
                     {platform.description}
                   </p>
                   
-                  <a
-                    href={`#${platform.id}`}
-                    className="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/link"
-                  >
-                    Deploy Platform
-                    <div className="w-10 h-[1px] bg-white/20 group-hover/link:w-16 group-hover/link:bg-primary-cyan transition-all" />
-                  </a>
+                  {platform.id === "recruit" ? (
+                    <Link
+                      href="/veloxarecruit"
+                      className="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/link"
+                    >
+                      Learn More
+                      <div className="w-10 h-[1px] bg-white/20 group-hover/link:w-16 group-hover/link:bg-primary-cyan transition-all" />
+                    </Link>
+                  ) : platform.id === "match" ? (
+                    <Link
+                      href="/smartmatch"
+                      className="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/link"
+                    >
+                      Learn More
+                      <div className="w-10 h-[1px] bg-white/20 group-hover/link:w-16 group-hover/link:bg-primary-cyan transition-all" />
+                    </Link>
+                  ) : platform.id === "leadgen" ? (
+                    <Link
+                      href="/leadgen"
+                      className="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/link"
+                    >
+                      Learn More
+                      <div className="w-10 h-[1px] bg-white/20 group-hover/link:w-16 group-hover/link:bg-primary-cyan transition-all" />
+                    </Link>
+                  ) : (
+                    <a
+                      href="#cta"
+                      className="inline-flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/link"
+                    >
+                      Learn More
+                      <div className="w-10 h-[1px] bg-white/20 group-hover/link:w-16 group-hover/link:bg-primary-cyan transition-all" />
+                    </a>
+                  )}
                 </div>
               </div>
 
