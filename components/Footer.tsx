@@ -4,80 +4,75 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-dark text-white">
+    <footer className="bg-navy-950 text-white border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-turquoise to-primary-teal rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">V</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-cyan to-primary-blue rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.3)]">
+                <span className="text-navy-950 font-bold text-xl">V</span>
               </div>
               <span className="font-display font-bold text-2xl">
-                Veloxa <span className="text-primary-turquoise">Technologies Ltd.</span>
+                Veloxa <span className="text-primary-cyan">Technology</span>
               </span>
             </div>
-            <p className="text-white/70 mb-6 max-w-md">
-              Transforming recruitment with AI-powered intelligence. VeloxaRecruit helps companies hire faster, smarter, and fairer.
+            <p className="text-white/50 mb-6 max-w-md leading-relaxed">
+              Architecting the autonomous future through advanced AI infrastructure and intelligent business ecosystems.
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-primary-turquoise rounded-lg flex items-center justify-center transition-colors duration-300"
+                href="https://www.linkedin.com/company/veloxatech"
+                className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 group"
                 aria-label="LinkedIn"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-white group-hover:text-navy-950" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
               <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-primary-turquoise rounded-lg flex items-center justify-center transition-colors duration-300"
+                href="https://x.com/VexaAISolutions"
+                className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 group"
                 aria-label="Twitter"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                <svg className="w-5 h-5 text-white group-hover:text-navy-950" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
               <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-primary-turquoise rounded-lg flex items-center justify-center transition-colors duration-300"
+                href="https://github.com/VeloxaTech"
+                className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 group"
                 aria-label="GitHub"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-white group-hover:text-navy-950" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Product */}
+          {/* Platforms */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-4">Product</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-lg text-white mb-6">Platforms</h4>
+            <ul className="space-y-4">
               <li>
-                <a href="#features" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Features
+                <a href="#recruit" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  VeloxaRecruit
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  How It Works
+                <a href="#match" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  SmartMatch
                 </a>
               </li>
               <li>
-                <a href="#benefits" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Benefits
+                <a href="#leadgen" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  LeadGen AI
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Integrations
+                <a href="#support" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  SmartSupport
                 </a>
               </li>
             </ul>
@@ -85,31 +80,26 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-4">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-lg text-white mb-6">Company</h4>
+            <ul className="space-y-4">
               <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
+                <a href="#about" className="text-white/50 hover:text-primary-cyan transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Careers
+                <a href="#features" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  Capabilities
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#cta" className="text-white/70 hover:text-primary-turquoise transition-colors">
+                <a href="#cta" className="text-white/50 hover:text-primary-cyan transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-primary-turquoise transition-colors">
-                  Press Kit
+                <a href="#" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  Careers
                 </a>
               </li>
             </ul>
@@ -117,20 +107,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-white/60 text-sm">
-              © {currentYear} Veloxa Technologies Ltd. All rights reserved.
+        <div className="pt-8 border-t border-white/5">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs tracking-widest uppercase font-bold">
+            <div className="text-white/30">
+              © {currentYear} Veloxa Technology. All rights reserved.
             </div>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-primary-turquoise transition-colors">
-                Privacy Policy
+            <div className="flex space-x-8">
+              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+                Privacy
               </a>
-              <a href="#" className="text-white/60 hover:text-primary-turquoise transition-colors">
-                Terms of Service
+              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+                Terms
               </a>
-              <a href="#" className="text-white/60 hover:text-primary-turquoise transition-colors">
-                Cookie Policy
+              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+                Security
               </a>
             </div>
           </div>

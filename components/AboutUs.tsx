@@ -50,24 +50,23 @@ export default function AboutUs() {
   const duplicatedTeam = [...team, ...team, ...team];
 
   return (
-    <section id="about" className="section-padding bg-neutral-offwhite dark:bg-neutral-dark overflow-hidden">
+    <section id="about" className="section-padding bg-navy-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-primary-turquoise/10 dark:bg-primary-turquoise/20 px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 bg-primary-turquoise rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-primary-turquoise dark:text-primary-light">
-              About Us
+          <div className="inline-flex items-center space-x-2 bg-primary-cyan/10 px-4 py-2 rounded-full mb-6">
+            <span className="w-2 h-2 bg-primary-cyan rounded-full animate-pulse shadow-[0_0_8px_#00FBFF]"></span>
+            <span className="text-sm font-medium text-primary-cyan">
+              About Veloxa
             </span>
           </div>
-          <h2 className="heading-xl text-neutral-dark dark:text-neutral-offwhite mb-6">
-            Meet the Team Behind Veloxa
+          <h2 className="heading-xl text-white mb-6">
+            Pioneering the AI Frontier
           </h2>
-          <p className="body-lg text-neutral-dark/70 dark:text-neutral-offwhite/70 max-w-3xl mx-auto">
-            Veloxa Technologies Ltd. is revolutionizing recruitment across Africa with AI-powered solutions.
-            Our mission is to make hiring faster, smarter, and more equitable for companies of all sizes.
-            We combine cutting-edge artificial intelligence with deep understanding of the African talent landscape
-            to deliver recruitment solutions that truly work.
+          <p className="body-lg text-white/70 max-w-3xl mx-auto">
+            Veloxa Technology is an AI-first engineering firm dedicated to building the infrastructure of the future. 
+            We specialize in embedding advanced intelligence into existing ecosystems, empowering businesses with 
+            autonomous agents and predictive platforms that define the next generation of industry standards.
           </p>
         </div>
 
@@ -80,11 +79,11 @@ export default function AboutUs() {
                   key={index}
                   className="flex-shrink-0 w-80"
                 >
-                  <div className="bg-white dark:bg-neutral-dark/50 rounded-2xl p-6 border border-neutral-dark/10 dark:border-white/10 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <div className="bg-navy-900/50 rounded-2xl p-6 border border-white/5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
                     {/* Profile Image */}
-                    <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-primary-turquoise to-primary-teal ring-4 ring-primary-turquoise/20">
+                    <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-primary-cyan to-primary-blue ring-4 ring-primary-cyan/20">
                       {member.image.includes("placeholder") ? (
-                        <div className="w-full h-full flex items-center justify-center text-white text-4xl font-bold">
+                        <div className="w-full h-full flex items-center justify-center text-navy-950 text-4xl font-bold">
                           {member.name.charAt(0)}
                         </div>
                       ) : (
@@ -99,16 +98,16 @@ export default function AboutUs() {
 
                     {/* Profile Info */}
                     <div className="text-center mb-4">
-                      <h3 className="font-display font-bold text-xl text-neutral-dark dark:text-neutral-offwhite mb-2">
+                      <h3 className="font-display font-bold text-xl text-white mb-2">
                         {member.name}
                       </h3>
-                      <p className="text-primary-turquoise dark:text-primary-light font-semibold mb-1">
+                      <p className="text-primary-cyan font-semibold mb-1">
                         {member.position}
                       </p>
-                      <p className="text-neutral-dark/70 dark:text-neutral-offwhite/70 text-sm mb-1">
+                      <p className="text-white/60 text-sm mb-1">
                         {member.role}
                       </p>
-                      <p className="text-neutral-dark/60 dark:text-neutral-offwhite/60 text-sm">
+                      <p className="text-white/40 text-sm">
                         {member.company}
                       </p>
                     </div>
@@ -119,11 +118,11 @@ export default function AboutUs() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-primary-turquoise/10 hover:bg-primary-turquoise dark:hover:bg-primary-light rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                        className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                         aria-label="LinkedIn"
                       >
                         <svg
-                          className="w-5 h-5 text-primary-turquoise dark:text-primary-light group-hover:text-white"
+                          className="w-5 h-5 text-white group-hover:text-navy-950"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -134,11 +133,11 @@ export default function AboutUs() {
                         href={member.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-primary-turquoise/10 hover:bg-primary-turquoise dark:hover:bg-primary-light rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                        className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                         aria-label="GitHub"
                       >
                         <svg
-                          className="w-5 h-5 text-primary-turquoise dark:text-primary-light group-hover:text-white"
+                          className="w-5 h-5 text-white group-hover:text-navy-950"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -149,11 +148,11 @@ export default function AboutUs() {
                         href={member.twitter}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-primary-turquoise/10 hover:bg-primary-turquoise dark:hover:bg-primary-light rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                        className="w-10 h-10 bg-white/5 hover:bg-primary-cyan rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                         aria-label="X (Twitter)"
                       >
                         <svg
-                          className="w-5 h-5 text-primary-turquoise dark:text-primary-light group-hover:text-white"
+                          className="w-5 h-5 text-white group-hover:text-navy-950"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -168,20 +167,19 @@ export default function AboutUs() {
           </div>
 
           {/* Gradient Overlays for fade effect */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-neutral-offwhite dark:from-neutral-dark to-transparent pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-neutral-offwhite dark:from-neutral-dark to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-navy-950 to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-navy-950 to-transparent pointer-events-none"></div>
         </div>
 
         {/* Company Mission */}
-        <div className="mt-16 bg-gradient-to-r from-primary-turquoise to-primary-teal rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="font-display font-bold text-3xl text-white mb-4">
+        <div className="mt-16 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-3xl p-8 md:p-12 text-center shadow-[0_0_50px_rgba(0,251,255,0.2)]">
+          <h3 className="font-display font-bold text-4xl text-navy-950 mb-6">
             Our Mission
           </h3>
-          <p className="text-white/90 text-lg max-w-3xl mx-auto">
-            To empower African businesses with world-class AI recruitment technology,
-            making hiring processes faster, more efficient, and completely bias-free.
-            We believe every company deserves access to the best talent, and every candidate
-            deserves a fair opportunity to showcase their skills.
+          <p className="text-navy-900 text-xl font-medium max-w-4xl mx-auto leading-relaxed">
+            To architect the autonomous future. We believe that by embedding intelligence into every business process, 
+            we can unlock unprecedented levels of human creativity and industrial efficiency. Veloxa is here to 
+            bridge the gap between current operational constraints and the limitless potential of AI.
           </p>
         </div>
       </div>

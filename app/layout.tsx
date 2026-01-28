@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Veloxa Technologies Ltd. - AI-Powered Recruitment Platform",
-  description: "Transform your hiring process with VeloxaRecruit. Get 60-80% faster hiring with zero unconscious bias through AI-powered interviews and CV screening.",
-  keywords: ["AI recruitment", "automated interviews", "CV screening", "hiring platform", "talent acquisition"],
+  title: "Veloxa Technology - Next-Generation AI Infrastructure",
+  description: "Architecting the autonomous future. Veloxa Technology embeds advanced intelligence into business ecosystems through predictive platforms and autonomous agents.",
+  keywords: ["AI infrastructure", "business automation", "autonomous agents", "predictive analytics", "Veloxa Technology"],
 };
 
 export default function RootLayout({

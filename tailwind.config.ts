@@ -10,22 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // VeloxaAI Brand Colors
+        // Veloxa Technology Brand Colors
         primary: {
-          turquoise: "#14B8A6", // Professional turquoise green
-          teal: "#0D9488", // Darker variant
-          light: "#2DD4BF", // Lighter variant
+          cyan: "#00FBFF", // Neon Cyan
+          blue: "#0EA5E9", // Supporting blue
         },
-        accent: {
-          yellow: "#F59E0B", // Professional amber/yellow (not too bright)
-          gold: "#D97706", // Darker gold
-          light: "#FBBF24", // Lighter yellow
-        },
-        neutral: {
-          offwhite: "#FAFAF9", // Off-white background
-          light: "#F5F5F4", // Light gray
-          medium: "#E7E5E4", // Medium gray
-          dark: "#292524", // Dark text
+        navy: {
+          950: "#020617", // Midnight Navy
+          900: "#0F172A",
+          800: "#1E293B", // Slate
+          700: "#334155", // Charcoal
         },
         background: "var(--background)",
         foreground: "var(--foreground)",

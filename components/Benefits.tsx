@@ -2,204 +2,74 @@
 
 export default function Benefits() {
   return (
-    <section id="benefits" className="py-24 bg-white">
+    <section id="benefits" className="py-24 bg-navy-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-neutral-dark mb-4">
-            Why Teams Choose <span className="gradient-text">VeloxaRecruit</span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-4">
+            Why Partner with <span className="gradient-text">Veloxa</span>
           </h2>
-          <p className="text-xl text-neutral-dark/70 max-w-3xl mx-auto">
-            Join innovative companies transforming their recruitment process with AI-powered intelligence.
+          <p className="text-xl text-white/60 max-w-3xl mx-auto">
+            We deliver enterprise-grade AI infrastructure that transforms operational bottlenecks into competitive advantages.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* For Employers */}
-          <div className="bg-gradient-to-br from-primary-turquoise/5 to-primary-teal/5 rounded-2xl p-8 border border-primary-turquoise/20">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-turquoise to-primary-teal rounded-lg flex items-center justify-center">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="font-display font-bold text-2xl text-neutral-dark">
-                For Employers
-              </h3>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Benefit 1 */}
+          <div className="group bg-navy-900/40 p-10 rounded-3xl border border-white/5 hover:border-primary-cyan/30 transition-all duration-500">
+            <div className="w-16 h-16 bg-primary-cyan/10 rounded-2xl flex items-center justify-center text-primary-cyan mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
             </div>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Massive Time Savings:</span>
-                  <span className="text-neutral-dark/70"> Reduce time-to-hire from 42 days to 8-17 days (60-80% faster)</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Lower Costs:</span>
-                  <span className="text-neutral-dark/70"> Save 50-70% on recruitment expenses by automating screening and interviews</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Better Quality Hires:</span>
-                  <span className="text-neutral-dark/70"> 40% improvement in candidate-job fit accuracy through AI matching</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Zero Unconscious Bias:</span>
-                  <span className="text-neutral-dark/70"> Standardized AI evaluation ensures fair, consistent assessment of all candidates</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Scale Effortlessly:</span>
-                  <span className="text-neutral-dark/70"> Handle 10 or 10,000 candidates without proportional cost or time increases</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-primary-turquoise flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Data-Driven Decisions:</span>
-                  <span className="text-neutral-dark/70"> Comprehensive analytics and AI recommendations replace gut-feeling hiring</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          {/* For Candidates */}
-          <div className="bg-gradient-to-br from-accent-yellow/5 to-accent-gold/5 rounded-2xl p-8 border border-accent-yellow/20">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent-yellow to-accent-gold rounded-lg flex items-center justify-center">
-                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <h3 className="font-display font-bold text-2xl text-neutral-dark">
-                For Candidates
-              </h3>
-            </div>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Instant Feedback:</span>
-                  <span className="text-neutral-dark/70"> Get immediate CV screening results and know where you stand</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Flexible Scheduling:</span>
-                  <span className="text-neutral-dark/70"> Interview 24/7 on your schedule—no need to coordinate with recruiters</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Fair Assessment:</span>
-                  <span className="text-neutral-dark/70"> Everyone evaluated with the same rigor—skills matter, not bias</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Transparent Process:</span>
-                  <span className="text-neutral-dark/70"> Clear scoring criteria and feedback—no black-box rejections</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">Professional Experience:</span>
-                  <span className="text-neutral-dark/70"> Clean, modern interface with professional AI voices—no awkward phone screens</span>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <svg className="w-6 h-6 text-accent-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <span className="font-semibold text-neutral-dark">No Ghosting:</span>
-                  <span className="text-neutral-dark/70"> Automated communications keep you informed at every stage</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Market Opportunity */}
-        <div className="bg-gradient-to-br from-neutral-dark to-neutral-dark/90 rounded-2xl p-12 text-white">
-          <div className="text-center mb-10">
-            <h3 className="font-display font-bold text-3xl mb-4">
-              Massive Market Opportunity
-            </h3>
-            <p className="text-white/80 text-lg max-w-2xl mx-auto">
-              Join the AI recruitment revolution transforming a $200B+ global industry
+            <h3 className="text-2xl font-display font-bold text-white mb-4">Accelerated Innovation</h3>
+            <p className="text-white/60 text-lg leading-relaxed">
+              We don't just provide tools; we embed intelligence. Our solutions are designed to be deployed rapidly, 
+              allowing your business to leverage cutting-edge AI months ahead of the competition.
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="font-display font-bold text-4xl text-accent-yellow mb-2">
-                $200B+
-              </div>
-              <div className="text-white/70">
-                Global recruitment market size
-              </div>
+
+          {/* Benefit 2 */}
+          <div className="group bg-navy-900/40 p-10 rounded-3xl border border-white/5 hover:border-primary-cyan/30 transition-all duration-500">
+            <div className="w-16 h-16 bg-primary-cyan/10 rounded-2xl flex items-center justify-center text-primary-cyan mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
             </div>
-            <div className="text-center">
-              <div className="font-display font-bold text-4xl text-accent-yellow mb-2">
-                15%
-              </div>
-              <div className="text-white/70">
-                Annual growth rate (CAGR)
-              </div>
+            <h3 className="text-2xl font-display font-bold text-white mb-4">Enterprise Reliability</h3>
+            <p className="text-white/60 text-lg leading-relaxed">
+              Built for high-stakes environments. Our platforms feature bank-grade security, 
+              redundant architectures, and 24/7 autonomous monitoring to ensure mission-critical performance.
+            </p>
+          </div>
+
+          {/* Benefit 3 */}
+          <div className="group bg-navy-900/40 p-10 rounded-3xl border border-white/5 hover:border-primary-cyan/30 transition-all duration-500">
+            <div className="w-16 h-16 bg-primary-cyan/10 rounded-2xl flex items-center justify-center text-primary-cyan mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-            <div className="text-center">
-              <div className="font-display font-bold text-4xl text-accent-yellow mb-2">
-                $5B+
-              </div>
-              <div className="text-white/70">
-                AI recruiting technology TAM
-              </div>
+            <h3 className="text-2xl font-display font-bold text-white mb-4">Cost Efficiency</h3>
+            <p className="text-white/60 text-lg leading-relaxed">
+              Our autonomous agents handle complex workflows at a fraction of traditional operational costs, 
+              delivering a rapid ROI and allowing you to scale without proportional headcount increases.
+            </p>
+          </div>
+
+          {/* Benefit 4 */}
+          <div className="group bg-navy-900/40 p-10 rounded-3xl border border-white/5 hover:border-primary-cyan/30 transition-all duration-500">
+            <div className="w-16 h-16 bg-primary-cyan/10 rounded-2xl flex items-center justify-center text-primary-cyan mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
             </div>
-            <div className="text-center">
-              <div className="font-display font-bold text-4xl text-accent-yellow mb-2">
-                90%
-              </div>
-              <div className="text-white/70">
-                Feature completion status
-              </div>
-            </div>
+            <h3 className="text-2xl font-display font-bold text-white mb-4">Custom Fit</h3>
+            <p className="text-white/60 text-lg leading-relaxed">
+              Every business is unique. We tailor our AI embedding strategies to match your specific industry 
+              requirements, ensuring a seamless fit into your existing digital ecosystem.
+            </p>
           </div>
         </div>
       </div>

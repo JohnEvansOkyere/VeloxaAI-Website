@@ -1,6 +1,6 @@
-# Veloxa Technologies Ltd. Website
+# Veloxa Technology Website
 
-Modern, professional website for Veloxa Technologies Ltd. showcasing VeloxaRecruit - our AI-powered recruitment platform.
+Modern, professional website for Veloxa Technology showcasing our AI platforms and infrastructure.
 
 ## Design
 
@@ -184,7 +184,7 @@ npm run build
 
 ## License
 
-Copyright 2025 Veloxa Technologies Ltd. All rights reserved.
+Copyright 2026 Veloxa Technology. All rights reserved.
 
 ---
 

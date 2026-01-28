@@ -8,37 +8,35 @@ export default function Stats() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const stats: Array<
-    | { startRange: number; endRange: number; label: string; description: string; suffix: string; isRange: true; value?: never }
-    | { value: number; label: string; description: string; suffix: string; isRange: false; startRange?: never; endRange?: never }
+    | { value: number; label: string; description: string; suffix: string; isRange: false }
+    | { startRange: number; endRange: number; label: string; description: string; suffix: string; isRange: true }
   > = [
     {
-      startRange: 60,
-      endRange: 80,
-      label: "Faster Hiring",
-      description: "From 42 days to 8-17 days",
-      suffix: "%",
-      isRange: true,
-    },
-    {
-      startRange: 50,
-      endRange: 70,
-      label: "Cost Reduction",
-      description: "In recruitment expenses",
-      suffix: "%",
-      isRange: true,
-    },
-    {
-      value: 40,
-      label: "Better Fit",
-      description: "Candidate-job accuracy",
+      value: 98,
+      label: "AI Accuracy",
+      description: "In complex decision-making",
       suffix: "%",
       isRange: false,
     },
     {
-      value: 0,
-      label: "Bias",
-      description: "Standardized AI assessment",
-      suffix: "%",
+      value: 10,
+      label: "Efficiency Boost",
+      description: "Compared to manual workflows",
+      suffix: "x",
+      isRange: false,
+    },
+    {
+      value: 24,
+      label: "Uptime",
+      description: "Autonomous agent availability",
+      suffix: "/7",
+      isRange: false,
+    },
+    {
+      value: 5,
+      label: "Platforms",
+      description: "Across industries",
+      suffix: "+",
       isRange: false,
     },
   ];
@@ -75,9 +73,9 @@ export default function Stats() {
       const progress = currentStep / steps;
 
       setCounts(stats.map((stat) => {
-        if (stat.isRange && stat.startRange !== undefined && stat.endRange !== undefined) {
+        if (stat.isRange && 'startRange' in stat && 'endRange' in stat) {
           return Math.floor(stat.startRange + (stat.endRange - stat.startRange) * progress);
-        } else if (!stat.isRange && stat.value !== undefined) {
+        } else if (!stat.isRange && 'value' in stat) {
           return Math.floor(stat.value * progress);
         }
         return 0;
@@ -92,25 +90,24 @@ export default function Stats() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white dark:bg-neutral-dark">
+    <section ref={sectionRef} className="py-20 bg-navy-950 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center animate-scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="text-center"
             >
-              <div className="font-display font-bold text-4xl md:text-5xl gradient-text mb-2">
-                {stat.isRange && stat.startRange !== undefined && stat.endRange !== undefined
+              <div className="font-display font-bold text-4xl md:text-6xl gradient-text mb-2 drop-shadow-[0_0_10px_rgba(0,251,255,0.3)]">
+                {stat.isRange && 'startRange' in stat && 'endRange' in stat
                   ? `${stat.startRange}-${stat.endRange}${stat.suffix}`
                   : `${counts[index]}${stat.suffix}`
                 }
               </div>
-              <div className="font-semibold text-lg text-neutral-dark dark:text-neutral-offwhite mb-1">
+              <div className="font-semibold text-lg text-white mb-1">
                 {stat.label}
               </div>
-              <div className="text-sm text-neutral-dark/60 dark:text-neutral-offwhite/60">
+              <div className="text-sm text-white/40">
                 {stat.description}
               </div>
             </div>

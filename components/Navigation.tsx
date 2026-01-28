@@ -18,7 +18,7 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-neutral-dark/95 backdrop-blur-md shadow-lg"
+          ? "bg-navy-950/90 backdrop-blur-md shadow-lg border-b border-white/5"
           : "bg-transparent"
       }`}
     >
@@ -27,11 +27,11 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-turquoise to-primary-teal rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">V</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-cyan to-primary-blue rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.5)]">
+                <span className="text-navy-950 font-bold text-xl">V</span>
               </div>
-              <span className="font-display font-bold text-2xl text-neutral-dark dark:text-neutral-offwhite">
-                Veloxa <span className="text-primary-turquoise dark:text-primary-light">Technologies Ltd.</span>
+              <span className="font-display font-bold text-2xl text-white">
+                Veloxa <span className="text-primary-cyan">Technology</span>
               </span>
             </a>
           </div>
@@ -39,46 +39,34 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#product"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+              href="#platforms"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
-              Product
+              Platforms
             </a>
             <a
               href="#features"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
-              Features
-            </a>
-            <a
-              href="#how-it-works"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
-            >
-              How It Works
+              Capabilities
             </a>
             <a
               href="#benefits"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
               Benefits
             </a>
             <a
               href="#about"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
-              About
-            </a>
-            <a
-              href="#pricing"
-              className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
-            >
-              Pricing
+              Company
             </a>
             <a
               href="#cta"
-              className="bg-gradient-to-r from-primary-turquoise to-primary-teal text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="bg-primary-cyan text-navy-950 px-6 py-2.5 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(0,251,255,0.4)] hover:scale-105 transition-all duration-300"
             >
-              Get Started
+              Work With Us
             </a>
           </div>
 
@@ -114,56 +102,42 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 animate-slide-down">
+          <div className="md:hidden py-4 animate-slide-down bg-navy-950 border-t border-white/5">
             <div className="flex flex-col space-y-4">
               <a
-                href="#product"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                href="#platforms"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Product
+                Platforms
               </a>
               <a
                 href="#features"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Features
-              </a>
-              <a
-                href="#how-it-works"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                How It Works
+                Capabilities
               </a>
               <a
                 href="#benefits"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Benefits
               </a>
               <a
                 href="#about"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                About
-              </a>
-              <a
-                href="#pricing"
-                className="text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Pricing
+                Company
               </a>
               <a
                 href="#cta"
-                className="bg-gradient-to-r from-primary-turquoise to-primary-teal text-white px-6 py-2.5 rounded-lg font-semibold text-center"
+                className="bg-primary-cyan text-navy-950 px-6 py-2.5 rounded-lg font-bold text-center mx-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Get Started
+                Work With Us
               </a>
             </div>
           </div>
