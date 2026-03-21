@@ -169,10 +169,10 @@ export default function CTA() {
               <p>
                 Prefer email? Reach us directly at{" "}
                 <a
-                  href="mailto:hello@veloxatech.com"
+                  href="mailto:hello@veloxarecruit.com"
                   className="text-primary-cyan hover:text-white transition-colors"
                 >
-                  hello@veloxatech.com
+                  hello@veloxarecruit.com
                 </a>
                 .
               </p>

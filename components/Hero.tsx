@@ -73,7 +73,7 @@ export default function Hero() {
 
           {/* World-Class Logoscape */}
           <div className="mt-24 pt-12 border-t border-white/5 w-full flex flex-wrap justify-center gap-x-16 gap-y-8 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700">
-            {['VeloxaRecruit', 'SmartMatch', 'LeadGen AI', 'SmartSupport'].map((product) => (
+            {['VeloxaRecruit', 'SmartMatch', 'LeadGen AI', 'Telegram Booking', 'WhatsApp Food', 'DemoForge'].map((product) => (
               <span key={product} className="font-display font-black text-xl tracking-tighter text-white uppercase italic">
                 {product}
               </span>
