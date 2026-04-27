@@ -31,42 +31,42 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-cyan"></span>
             </span>
             <span className="text-[11px] font-bold text-white/80 tracking-[0.2em] uppercase">
-              The Sovereign AI Infrastructure
+              Trusted by Africa&apos;s most ambitious operators
             </span>
           </div>
 
           {/* Precision Typography Heading */}
-          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-9xl text-white mb-8 leading-[0.9] tracking-tighter animate-slide-up">
-            Build <br />
-            <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,251,255,0.3)]">Without Limits.</span>
+          <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tighter animate-slide-up">
+            Run your business <br />
+            <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,251,255,0.3)]">like it&apos;s twice the size.</span>
           </h1>
 
           {/* Refined Subheading */}
-          <p className="text-lg sm:text-xl text-white/50 max-w-2xl mb-14 leading-relaxed font-medium animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Veloxa Technology architects autonomous ecosystems for the African frontier. 
-            We embed high-reasoning intelligence into the tools you use every day.
+          <p className="text-lg sm:text-xl text-white/60 max-w-2xl mb-14 leading-relaxed font-medium animate-slide-up" style={{ animationDelay: "0.1s" }}>
+            Veloxa builds the AI workforce behind Africa&apos;s fastest-moving teams &mdash; hiring sharper, selling faster,
+            and serving customers around the clock. You ship the output of a thirty-person team with the agility of five.
           </p>
 
           {/* Premium CTA Logic */}
           <div className="flex flex-col sm:flex-row gap-6 items-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <a
-              href="#platforms"
+              href="#cta"
               className="group relative inline-flex items-center justify-center bg-white text-navy-950 px-10 py-5 rounded-full font-black text-lg overflow-hidden transition-all hover:scale-105 active:scale-95"
             >
               <div className="absolute inset-0 bg-primary-cyan translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative z-10 flex items-center gap-2">
-                Explore Infrastructure
+                Book a working demo
                 <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
             </a>
-            
+
             <a
-              href="#about"
+              href="#testimonials"
               className="group text-white/70 hover:text-white font-bold text-lg flex items-center gap-2 transition-colors"
             >
-              Our Philosophy
+              See customer stories
               <span className="w-8 h-[1px] bg-white/20 group-hover:w-12 group-hover:bg-primary-cyan transition-all" />
             </a>
           </div>

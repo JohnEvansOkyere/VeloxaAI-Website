@@ -12,30 +12,30 @@ export default function Stats() {
     | { startRange: number; endRange: number; label: string; description: string; suffix: string; isRange: true }
   > = [
     {
-      value: 98,
-      label: "AI Accuracy",
-      description: "In complex decision-making",
+      value: 67,
+      label: "Operating Costs Cut",
+      description: "Average reduction within the first 90 days",
       suffix: "%",
       isRange: false,
     },
     {
       value: 10,
-      label: "Efficiency Boost",
-      description: "Compared to manual workflows",
+      label: "Faster Hiring Cycles",
+      description: "From six weeks of screening to under five days",
       suffix: "x",
       isRange: false,
     },
     {
       value: 24,
-      label: "Uptime",
-      description: "Autonomous agent availability",
+      label: "Always-On Coverage",
+      description: "Customers served while your team rests",
       suffix: "/7",
       isRange: false,
     },
     {
-      value: 5,
-      label: "Platforms",
-      description: "Across industries",
+      value: 30,
+      label: "Hours Reclaimed",
+      description: "Per team, every single week",
       suffix: "+",
       isRange: false,
     },
@@ -90,24 +90,36 @@ export default function Stats() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-navy-950 border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section ref={sectionRef} className="py-20 bg-navy-950 border-y border-white/5 relative overflow-hidden">
+      {/* Subtle accent glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-primary-cyan/30 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-12">
+          <span className="text-[11px] font-bold text-primary-cyan tracking-[0.3em] uppercase">
+            The receipts
+          </span>
+          <p className="mt-3 text-white/50 text-sm md:text-base max-w-xl mx-auto">
+            What changes for the businesses we work with &mdash; measured, not promised.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center"
+              className="group relative text-center md:px-6 md:border-r md:border-white/5 last:border-r-0 transition-all"
             >
-              <div className="font-display font-bold text-4xl md:text-6xl gradient-text mb-2 drop-shadow-[0_0_10px_rgba(0,251,255,0.3)]">
+              <div className="font-display font-black text-5xl md:text-6xl gradient-text mb-3 drop-shadow-[0_0_15px_rgba(0,251,255,0.35)] tracking-tighter group-hover:scale-105 transition-transform duration-500 origin-center">
                 {stat.isRange && 'startRange' in stat && 'endRange' in stat
                   ? `${stat.startRange}-${stat.endRange}${stat.suffix}`
                   : `${counts[index]}${stat.suffix}`
                 }
               </div>
-              <div className="font-semibold text-lg text-white mb-1">
+              <div className="font-bold text-base md:text-lg text-white mb-1.5">
                 {stat.label}
               </div>
-              <div className="text-sm text-white/40">
+              <div className="text-xs md:text-sm text-white/40 leading-relaxed">
                 {stat.description}
               </div>
             </div>

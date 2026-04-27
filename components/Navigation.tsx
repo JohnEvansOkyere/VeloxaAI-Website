@@ -63,6 +63,12 @@ export default function Navigation() {
               Benefits
             </a>
             <a
+              href="#testimonials"
+              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
+            >
+              Customers
+            </a>
+            <a
               href="#about"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
@@ -79,7 +85,8 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-neutral-dark dark:text-neutral-offwhite hover:text-primary-turquoise dark:hover:text-primary-light transition-colors"
+            className="md:hidden text-white/80 hover:text-primary-cyan transition-colors"
+            aria-label="Toggle menu"
           >
             <svg
               className="w-6 h-6"
@@ -137,6 +144,13 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Benefits
+              </a>
+              <a
+                href="#testimonials"
+                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Customers
               </a>
               <a
                 href="#about"
