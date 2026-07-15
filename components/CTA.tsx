@@ -7,6 +7,7 @@ type ContactFormState = {
   email: string;
   company: string;
   message: string;
+  website: string;
 };
 
 export default function CTA() {
@@ -19,6 +20,7 @@ export default function CTA() {
     email: "",
     company: "",
     message: "",
+    website: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -225,6 +227,16 @@ export default function CTA() {
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px opacity-0"
+                />
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="text-left">
                     <label

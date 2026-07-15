@@ -113,13 +113,13 @@ export default function Footer() {
               © {currentYear} Veloxa Technology. All rights reserved.
             </div>
             <div className="flex space-x-8">
-              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+              <a href="/privacy" className="text-white/30 hover:text-primary-cyan transition-colors">
                 Privacy
               </a>
-              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+              <a href="/terms" className="text-white/30 hover:text-primary-cyan transition-colors">
                 Terms
               </a>
-              <a href="#" className="text-white/30 hover:text-primary-cyan transition-colors">
+              <a href="/security" className="text-white/30 hover:text-primary-cyan transition-colors">
                 Security
               </a>
             </div>
