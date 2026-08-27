@@ -46,6 +46,9 @@ export interface CaseStudy {
   metaDescription: string;
   /** Card summary shown on the homepage spotlight. */
   cardSummary: string;
+  /** Optional thumbnail for the home page work index. Omit and the row renders
+   *  without a plate, so a new study needs no image to be listed. */
+  cardImage?: string;
   /** The one-sentence thesis, set large at the top of the page. */
   thesis: string;
   stats: CaseStudyStat[];
@@ -73,6 +76,7 @@ export const caseStudies: CaseStudy[] = [
     status: "In production use",
     metaDescription:
       "How a month of on-site workflow discovery with a Ghanaian glass & aluminium fabricator produced a single operations platform — configurator, extraction, quoting, cutting optimization and a gated factory pipeline.",
+    cardImage: "/veloxa/01-tools.webp",
     cardSummary:
       "A manufacturer was one signature away from buying a foreign off-the-shelf ERP. We asked for a month inside their business first. What we found on that factory floor is the reason the software fits the way they actually work.",
     thesis:

@@ -27,12 +27,14 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-cyan to-primary-blue rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.5)]">
-                <span className="text-navy-950 font-bold text-xl">V</span>
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.5)] p-1.5">
+                <img
+                  src="/apple-touch-icon.png"
+                  alt="Veloxa"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-display font-bold text-2xl text-white">
-                Veloxa <span className="text-primary-cyan">Technology Ltd</span>
-              </span>
+              <span className="font-display font-bold text-2xl text-white">Veloxa</span>
             </a>
           </div>
 
@@ -51,12 +53,6 @@ export default function Navigation() {
               Platforms
             </a>
             <a
-              href="/#features"
-              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
-            >
-              Capabilities
-            </a>
-            <a
               href="/#proof"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
@@ -67,12 +63,6 @@ export default function Navigation() {
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
               How We Work
-            </a>
-            <a
-              href="/#about"
-              className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
-            >
-              Company
             </a>
             <a
               href="/#cta"
@@ -132,13 +122,6 @@ export default function Navigation() {
                 Platforms
               </a>
               <a
-                href="/#features"
-                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Capabilities
-              </a>
-              <a
                 href="/#proof"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -151,13 +134,6 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 How We Work
-              </a>
-              <a
-                href="/#about"
-                className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Company
               </a>
               <a
                 href="/#cta"

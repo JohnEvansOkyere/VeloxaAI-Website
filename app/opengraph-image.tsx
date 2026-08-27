@@ -1,9 +1,14 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function Image() {
+  const logo = await readFile(join(process.cwd(), "public/apple-touch-icon.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -35,13 +40,15 @@ export default function Image() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(135deg, #00FBFF 0%, #0EA5E9 100%)",
+              background: "#ffffff",
+              padding: 8,
             }}
           >
-            <span style={{ fontSize: 32, fontWeight: 700, color: "#020617" }}>V</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logoSrc} width={40} height={40} alt="Veloxa" />
           </div>
           <span style={{ fontSize: 30, fontWeight: 600, color: "#ffffff", letterSpacing: -0.5 }}>
-            Veloxa Technology
+            Veloxa
           </span>
         </div>
 

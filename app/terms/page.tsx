@@ -3,8 +3,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Veloxa Technology",
-  description: "The terms that govern your use of the Veloxa Technology website.",
+  title: "Terms of Service | Veloxa",
+  description: "The terms that govern your use of the Veloxa website.",
 };
 
 export default function TermsPage() {

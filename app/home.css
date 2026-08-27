@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* ============================================================================
+   Veloxa — /work/fabrication-ops-platform field report
+   Theme layer over scrollcraft.css. Grammar: chaptered editorial.
+   Brand match: Midnight Navy ground, Neon Cyan accent (cyan -> blue on the two
+   elements the main site gradients: the spine fill and the primary button).
+   One chapter (the peak) shifts the ground toward the accent hue.
+   ========================================================================== */
+
+:root {
+  --sc-canvas:      #020617;   /* Midnight Navy — navy.950 */
+  --sc-surface:     #0F172A;   /* navy.900 */
+  --sc-ink:         #F1F5F9;
+  --sc-ink-soft:    #94A6BC;   /* tinted slate, not flat white-alpha */
+  --sc-accent:      #00FBFF;   /* Neon Cyan */
+  --sc-accent-2:    #0EA5E9;   /* supporting blue, for brand gradients only */
+  --sc-accent-ink:  #02121B;
+
+  --sc-hairline:        color-mix(in oklab, var(--sc-ink) 12%, transparent);
+  --sc-hairline-strong: color-mix(in oklab, var(--sc-ink) 24%, transparent);
+
+  --sc-font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sc-font-text:    "Archivo", system-ui, -apple-system, sans-serif;
+
+  --sc-measure: 64ch;
+
+  /* dark ground: hairlines and a faint accent glow carry depth, not shadows */
+  --sc-shadow-color: 222 60% 3%;
+  --sc-e1: 0 1px 2px hsl(var(--sc-shadow-color) / 0.4);
+  --sc-e2: 0 10px 30px -12px hsl(var(--sc-shadow-color) / 0.55);
+  --sc-e3: 0 30px 70px -28px hsl(var(--sc-shadow-color) / 0.6);
+  --sc-edge: inset 0 1px 0 color-mix(in oklab, #ffffff 12%, transparent);
+
+  --vx-page-max: 78rem;
+  --vx-rail: clamp(3rem, 7vw, 7rem); /* outer margin the folio/spine live in */
+}
+
+/* Newsreader runs a touch large on the x-height; nudge tracking on big display */
+.sc-display { font-weight: 500; letter-spacing: -0.015em; }
+.sc-display--md { letter-spacing: -0.01em; }
+.sc-label,
+.vx-kicker {
+  font-family: var(--sc-font-text);
+  font-size: var(--sc-t-xs);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+
+body {
+  font-feature-settings: "ss01";
+  background:
+    radial-gradient(70% 40% at 12% -5%, color-mix(in oklab, var(--sc-accent) 12%, transparent), transparent 70%),
+    radial-gradient(60% 45% at 100% 8%, color-mix(in oklab, var(--sc-accent-2) 10%, transparent), transparent 70%),
+    var(--sc-canvas);
+  background-attachment: fixed;
+}
+.sc-grain { opacity: 0.05; mix-blend-mode: normal; }
+.sc-grain::before { opacity: 0.5; }
+
+/* links inside prose */
+.vx-prose a,
+a.vx-link {
+  color: var(--sc-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--sc-d-fast) var(--sc-ease-out);
+}
+.vx-prose a:hover,
+a.vx-link:hover { color: var(--sc-ink); }
+
+/* ---------------------------------------------------------------- layout -- */
+.sc-wrap { max-width: var(--vx-page-max); }
+main { position: relative; z-index: 1; }
+
+/* =========================================================== margin chrome */
+
+/* Folio — fixed, vertical, left edge. The chaptered-editorial nav: no bar. */
+.vx-folio {
+  position: fixed;
+  left: max(0.9rem, calc(var(--vx-rail) - 3.4rem));
+  top: 0;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  z-index: 40;
+  pointer-events: none;
+}
+.vx-folio__inner {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+.vx-folio__num {
+  color: var(--sc-ink);
+  font-variant-numeric: tabular-nums;
+}
+.vx-folio__rule {
+  writing-mode: horizontal-tb;
+  width: 1px;
+  height: clamp(2rem, 8vh, 5rem);
+  background: var(--sc-hairline-strong);
+}
+.vx-folio__title { transition: color .5s var(--sc-ease-out); }
+
+/* Spine — fixed, right edge. The signature move. */
+.vx-spine {
+  position: fixed;
+  right: max(0.75rem, calc(var(--vx-rail) - 4.6rem));
+  top: 0;
+  height: 100vh;
+  width: 12rem;
+  display: none;
+  z-index: 40;
+  pointer-events: none;
+  --spine-top: 15vh;
+  --spine-bot: 15vh;
+  --spine-ink: var(--sc-ink);
+  --spine-soft: var(--sc-ink-soft);
+  --spine-hair: var(--sc-hairline-strong);
+  --spine-accent: var(--sc-accent);
+}
+.vx-js .vx-spine.is-live { display: block; }
+.vx-js .vx-folio.is-live { display: flex; }
+
+.vx-spine__cap {
+  position: absolute;
+  right: 0;
+  top: calc(var(--spine-top) - 2.6rem);
+  text-align: right;
+  font-family: var(--sc-font-text);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--spine-soft);
+}
+.vx-spine__track {
+  position: absolute;
+  right: 0;
+  top: var(--spine-top);
+  bottom: var(--spine-bot);
+  width: 1px;
+  background: var(--spine-hair);
+}
+.vx-spine__fill {
+  position: absolute;
+  right: 0;
+  top: var(--spine-top);
+  width: 1px;
+  height: calc((100vh - var(--spine-top) - var(--spine-bot)) * var(--vx-p, 0));
+  /* the brand gradient: cyan -> supporting blue, one of two places it appears */
+  background: linear-gradient(180deg, var(--sc-accent), var(--sc-accent-2));
+  box-shadow: 0 0 12px -2px color-mix(in oklab, var(--sc-accent) 60%, transparent);
+}
+.vx-js .vx-spine__fill { transition: height .12s linear; }
+
+.vx-spine__node {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  width: 100%;
+}
+.vx-spine__node[data-i="0"] { top: calc(var(--spine-top) + (100vh - var(--spine-top) - var(--spine-bot)) * 0.06); }
+.vx-spine__node[data-i="1"] { top: calc(var(--spine-top) + (100vh - var(--spine-top) - var(--spine-bot)) * 0.36); }
+.vx-spine__node[data-i="2"] { top: calc(var(--spine-top) + (100vh - var(--spine-top) - var(--spine-bot)) * 0.64); }
+.vx-spine__node[data-i="3"] { top: calc(var(--spine-top) + (100vh - var(--spine-top) - var(--spine-bot)) * 0.93); }
+.vx-spine__label {
+  font-family: var(--sc-font-text);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--spine-soft);
+  opacity: 0.5;
+  transform: translateX(4px);
+  white-space: nowrap;
+}
+.vx-js .vx-spine__label { transition: opacity .4s var(--sc-ease-out), transform .4s var(--sc-ease-out), color .4s; }
+.vx-spine__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--spine-soft);
+  background: var(--sc-canvas);
+  flex: none;
+}
+.vx-js .vx-spine__dot { transition: background .35s, border-color .35s, box-shadow .35s, transform .35s; }
+.vx-spine__node.is-on .vx-spine__label { opacity: 1; transform: none; color: var(--spine-ink); }
+.vx-spine__node.is-on .vx-spine__dot {
+  background: var(--spine-accent);
+  border-color: var(--spine-accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--spine-accent) 18%, transparent);
+}
+/* branch ticks that fan off node 2 (Chapter 3) when it is live */
+.vx-spine__branch {
+  position: absolute;
+  right: 0;
+  top: calc(var(--spine-top) + (100vh - var(--spine-top) - var(--spine-bot)) * 0.64);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-top: 1.4rem;
+  opacity: 0;
+  pointer-events: none;
+}
+.vx-js .vx-spine__branch { transition: opacity .5s var(--sc-ease-out); }
+.vx-spine.branch-open .vx-spine__branch { opacity: 1; }
+.vx-spine__twig {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  font-family: var(--sc-font-text);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--spine-soft);
+}
+.vx-spine__twig::after {
+  content: "";
+  width: 14px; height: 1px;
+  background: var(--spine-accent);
+  flex: none;
+}
+/* over the peak chapter the ground shifts toward the accent, so the spine
+   answers by turning the cyan up and glowing a little harder */
+.vx-spine.on-dark {
+  --spine-ink: #EAFDFF;
+  --spine-soft: #7FD9E4;
+  --spine-hair: color-mix(in oklab, var(--sc-accent) 30%, transparent);
+}
+.vx-spine.on-dark .vx-spine__dot { background: #04171C; }
+.vx-spine.on-dark .vx-spine__node.is-on .vx-spine__dot {
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--sc-accent) 24%, transparent),
+              0 0 14px color-mix(in oklab, var(--sc-accent) 70%, transparent);
+}
+.vx-folio.on-dark .vx-folio__inner { color: #7FD9E4; }
+.vx-folio.on-dark .vx-folio__num { color: #EAFDFF; }
+
+/* ============================================================== title page */
+.vx-title {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(2.5rem, 7vh, 5.5rem) var(--vx-rail) clamp(2.5rem, 7vh, 5rem);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+.vx-title__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  align-items: baseline;
+}
+.vx-title__mark {
+  font-family: var(--sc-font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--sc-ink);
+}
+.vx-title__body { margin: auto 0; max-width: min(94vw, 54rem); padding: clamp(2rem, 6vh, 4rem) 0; }
+.vx-title__h {
+  font-size: var(--sc-t-3xl);
+  line-height: 1.0;
+}
+.vx-title__h > span { display: block; }
+.vx-title__sub {
+  margin-top: var(--sc-6);
+  max-width: 40ch;
+  color: var(--sc-ink-soft);
+  font-size: var(--sc-t-lg);
+  line-height: 1.5;
+}
+.vx-title__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: auto;
+  padding-top: var(--sc-4);
+  border-top: 1px solid var(--sc-hairline);
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+
+/* ================================================================ chapters */
+.vx-chapter {
+  padding: clamp(3.25rem, 8vh, 6.5rem) var(--vx-rail);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+.vx-chapter__head { margin-bottom: clamp(2.25rem, 5vh, 4rem); }
+.vx-kicker { display: block; margin-bottom: var(--sc-4); }
+.vx-intertitle {
+  font-size: var(--sc-t-3xl);
+  line-height: 0.98;
+  max-width: 18ch;
+}
+.vx-intertitle .vx-stop { color: var(--sc-accent); }
+
+.vx-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.vx-chapter--reverse .vx-spread { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr); }
+.vx-chapter--reverse .vx-col--media { order: -1; }
+
+.vx-col--text { max-width: 42rem; }
+.vx-lede {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-xl);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--sc-ink);
+  margin: 0 0 var(--sc-5);
+  text-wrap: pretty;
+}
+.vx-prose p {
+  margin: 0 0 var(--sc-4);
+  color: var(--sc-ink-soft);
+  max-width: var(--sc-measure);
+  /* light-on-dark: a touch more leading and tracking, per the taste floor */
+  line-height: 1.66;
+  letter-spacing: 0.004em;
+  text-wrap: pretty;
+}
+.vx-prose p:last-child { margin-bottom: 0; }
+.vx-prose strong { color: var(--sc-ink); font-weight: 600; }
+
+/* museum-label list: intake tools, guarantees, artifacts */
+.vx-marks {
+  list-style: none;
+  margin: var(--sc-6) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--sc-hairline);
+}
+.vx-marks > li {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 10rem) 1fr;
+  gap: 0.4rem 1.4rem;
+  padding: var(--sc-4) 0;
+  border-bottom: 1px solid var(--sc-hairline);
+}
+.vx-marks__k {
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sc-ink);
+  padding-top: 0.15rem;
+}
+.vx-marks__v { color: var(--sc-ink-soft); line-height: 1.5; font-size: 0.95rem; }
+
+/* media column */
+.vx-media { margin: 0; }
+@media (min-width: 1101px) {
+  .vx-col--media { position: sticky; top: 16vh; align-self: start; }
+}
+.vx-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--sc-r-sm);
+  border: 1px solid var(--sc-hairline);
+  filter: saturate(1.02) contrast(1.03);
+}
+/* parallax wrapper: bleed vertically so the ±translate never exposes an edge */
+.vx-media__px {
+  border-radius: var(--sc-r-sm);
+  overflow: clip;
+  margin-block: -26px;
+}
+.vx-media__px img { border-radius: 0; }
+.vx-cap {
+  margin-top: 0.75rem;
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--sc-ink-soft);
+  max-width: 34ch;
+}
+.vx-cap b { color: var(--sc-ink); font-weight: 600; }
+[data-sc-reveal] { border-radius: var(--sc-r-sm); overflow: clip; }
+
+/* pull quote as running text */
+.vx-pull {
+  margin: var(--sc-6) 0 0;
+  padding-left: var(--sc-5);
+  border-left: 2px solid var(--sc-accent);
+}
+.vx-pull p {
+  font-family: var(--sc-font-display);
+  font-style: italic;
+  font-size: var(--sc-t-lg);
+  line-height: 1.4;
+  color: var(--sc-ink);
+  margin: 0 0 var(--sc-2);
+}
+.vx-pull cite {
+  font-family: var(--sc-font-text);
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+
+/* ---- Chapter 2, the authored-silence beat: sparse, single column -------- */
+.vx-chapter--quiet .vx-spread {
+  grid-template-columns: minmax(0, 34rem) minmax(0, 0.7fr);
+  gap: clamp(2rem, 8vw, 7rem);
+}
+.vx-chapter--quiet .vx-intertitle { color: var(--sc-ink); }
+
+/* ============================ Chapter 3 — the peak: the ground takes the hue */
+.band--dark {
+  background:
+    radial-gradient(90% 60% at 50% 0%, color-mix(in oklab, var(--sc-accent) 9%, transparent), transparent 70%),
+    #04171C;
+  --sc-canvas: #04171C;
+  --sc-ink: #EAFDFF;
+  --sc-ink-soft: #8FB4BE;
+  --sc-hairline: color-mix(in oklab, var(--sc-accent) 14%, transparent);
+  --sc-hairline-strong: color-mix(in oklab, var(--sc-accent) 28%, transparent);
+  color: var(--sc-ink);
+  border-bottom-color: color-mix(in oklab, var(--sc-accent) 20%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--sc-accent) 22%, transparent);
+}
+.band--dark .vx-media img {
+  filter: saturate(1.0) contrast(1.04) brightness(0.98);
+  border-color: color-mix(in oklab, var(--sc-accent) 22%, transparent);
+}
+.band--dark .vx-lede { color: var(--sc-ink); }
+.band--dark .vx-intertitle .vx-stop { color: var(--sc-accent); }
+
+.vx-peak__thesis {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-2xl);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+  margin: 0 0 clamp(2rem, 4.5vh, 3.25rem);
+  text-wrap: balance;
+}
+.vx-peak__thesis em { font-style: italic; color: var(--sc-accent); }
+
+.vx-peak__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.band--dark .vx-media__px { margin-block: 0; }
+
+/* the data stem: inline, always-present fallback for the fixed spine */
+.vx-stem { list-style: none; margin: 0; padding: 0; position: relative; }
+.vx-stem::before {
+  content: "";
+  position: absolute;
+  left: 3px; top: 0.6rem; bottom: 0.6rem;
+  width: 1px;
+  background: color-mix(in oklab, var(--sc-accent) 55%, transparent);
+}
+.vx-stem > li {
+  position: relative;
+  padding: 0 0 var(--sc-5) 1.75rem;
+}
+.vx-stem > li:last-child { padding-bottom: 0; }
+.vx-stem > li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.45rem;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sc-accent);
+}
+.vx-stem__k {
+  display: block;
+  font-family: var(--sc-font-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--sc-ink);
+  margin-bottom: 0.3rem;
+}
+.vx-stem__v { color: var(--sc-ink-soft); font-size: 0.92rem; line-height: 1.55; }
+.vx-prose p.vx-stem__src,
+.vx-stem__src {
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+  display: block;
+  max-width: none;
+  margin: var(--sc-6) 0 var(--sc-4);
+}
+
+/* counter row */
+.vx-count {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: clamp(2.5rem, 6vh, 4.5rem);
+  padding-top: var(--sc-5);
+  border-top: 1px solid var(--sc-hairline-strong);
+}
+.vx-count__n {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-2xl);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--sc-ink);
+  font-variant-numeric: tabular-nums;
+}
+.vx-count__l {
+  margin-top: 0.5rem;
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--sc-ink-soft);
+}
+
+/* ==================================================================== FAQ */
+.vx-faq { padding: clamp(4.5rem, 11vh, 9rem) var(--vx-rail); border-bottom: 1px solid var(--sc-hairline); }
+.vx-faq__grid { display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); }
+.vx-faq h2 { font-size: var(--sc-t-xl); line-height: 1.1; margin: 0; }
+.vx-faq__intro { margin-top: var(--sc-4); color: var(--sc-ink-soft); font-size: 0.95rem; line-height: 1.55; }
+.vx-faq__list { border-top: 1px solid var(--sc-hairline); }
+.vx-faq details { border-bottom: 1px solid var(--sc-hairline); padding: var(--sc-4) 0; }
+.vx-faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-family: var(--sc-font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sc-ink);
+}
+.vx-faq summary::-webkit-details-marker { display: none; }
+.vx-faq summary::after { content: "+"; color: var(--sc-accent); font-family: var(--sc-font-text); }
+.vx-faq details[open] summary::after { content: "\2013"; }
+.vx-faq details p { margin: var(--sc-3) 0 0; max-width: 60ch; color: var(--sc-ink-soft); line-height: 1.6; font-size: 0.95rem; }
+
+/* ============================================================== colophon -- */
+.vx-colophon {
+  padding: clamp(4.5rem, 12vh, 10rem) var(--vx-rail) clamp(3rem, 7vh, 5rem);
+  background: var(--sc-surface);
+}
+.vx-colophon__mark {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--sc-2);
+}
+.vx-colophon__line {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-xl);
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  max-width: 24ch;
+  margin: 0 0 clamp(2rem, 5vh, 3.5rem);
+  text-wrap: balance;
+}
+.vx-colophon__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 3rem;
+  padding: var(--sc-5) 0;
+  border-top: 1px solid var(--sc-hairline-strong);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+.vx-colophon__grid h3 {
+  font-family: var(--sc-font-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sc-ink);
+  margin: 0 0 var(--sc-3);
+}
+.vx-colophon__grid p { margin: 0; color: var(--sc-ink-soft); font-size: 0.9rem; line-height: 1.55; }
+.vx-colophon__grid a { color: var(--sc-ink-soft); text-decoration: underline; text-underline-offset: 0.2em; }
+.vx-colophon__grid a:hover { color: var(--sc-accent); }
+
+/* inline contact form — CTA is running text, field row sits under it */
+.vx-form { margin-top: clamp(2.5rem, 6vh, 4rem); max-width: 40rem; }
+.vx-form__ask {
+  font-family: var(--sc-font-display);
+  font-size: var(--sc-t-lg);
+  line-height: 1.35;
+  color: var(--sc-ink);
+  margin: 0 0 var(--sc-4);
+}
+.vx-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+.vx-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.vx-field label {
+  font-family: var(--sc-font-text);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+.vx-field input,
+.vx-field textarea {
+  background: color-mix(in oklab, var(--sc-ink) 5%, transparent);
+  border: 1px solid color-mix(in oklab, var(--sc-ink) 22%, transparent);
+  border-radius: var(--sc-r-sm);
+  padding: 0.7rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: var(--sc-font-text);
+  color: var(--sc-ink);
+  transition: border-color var(--sc-d-fast) var(--sc-ease-out), background var(--sc-d-fast) var(--sc-ease-out);
+}
+.vx-field input::placeholder,
+.vx-field textarea::placeholder { color: color-mix(in oklab, var(--sc-ink) 38%, transparent); }
+.vx-field input:hover,
+.vx-field textarea:hover { border-color: color-mix(in oklab, var(--sc-accent) 45%, transparent); }
+.vx-field input:focus-visible,
+.vx-field textarea:focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 2px;
+  border-color: var(--sc-accent);
+  background: color-mix(in oklab, var(--sc-accent) 6%, transparent);
+}
+.vx-field textarea { resize: vertical; min-height: 5rem; height: 5.5rem; }
+.vx-form__foot { display: flex; align-items: center; gap: 1.25rem; margin-top: 0.4rem; flex-wrap: wrap; }
+.vx-btn {
+  appearance: none;
+  border: 0;
+  /* the brand gradient, second of the two places it appears */
+  background: linear-gradient(135deg, var(--sc-accent) 0%, var(--sc-accent-2) 100%);
+  color: var(--sc-accent-ink);
+  font-family: var(--sc-font-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--sc-r-sm);
+  cursor: pointer;
+  box-shadow: 0 0 24px -6px color-mix(in oklab, var(--sc-accent) 55%, transparent);
+  transition: box-shadow var(--sc-d-fast) var(--sc-ease-out), transform var(--sc-d-fast) var(--sc-ease-out);
+}
+.vx-btn:hover { box-shadow: 0 0 30px -4px color-mix(in oklab, var(--sc-accent) 75%, transparent); transform: translateY(-1px); }
+.vx-btn:active { transform: translateY(1px); }
+.vx-btn:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+.vx-form__note { font-size: 0.75rem; color: var(--sc-ink-soft); }
+.vx-form__msg { font-size: 0.85rem; margin-top: 0.75rem; }
+.vx-form__msg[data-kind="err"] { color: #FCA5A5; }
+.vx-form__msg[data-kind="ok"] { color: var(--sc-accent); }
+
+.vx-legal {
+  margin-top: var(--sc-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-family: var(--sc-font-text);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sc-ink-soft);
+}
+.vx-legal a { color: var(--sc-ink-soft); text-decoration: none; }
+.vx-legal a:hover { color: var(--sc-accent); }
+
+/* =============================================================== responsive */
+/* The margin chrome is a desktop enhancement. Below this width it would collide
+   with the single-column body, so it is off and Chapter 03's inline stem
+   carries the same "one source, four outputs" meaning. */
+@media (max-width: 1179px) {
+  .vx-folio,
+  .vx-spine { display: none !important; }
+}
+.vx-folio.is-fading,
+.vx-spine.is-fading { opacity: 0; transition: opacity .5s var(--sc-ease-out); pointer-events: none; }
+
+@media (max-width: 1100px) {
+  .vx-spread,
+  .vx-peak__grid,
+  .vx-faq__grid,
+  .vx-chapter--reverse .vx-spread { grid-template-columns: minmax(0, 1fr); }
+  .vx-chapter--reverse .vx-col--media { order: 0; }
+  .vx-chapter--quiet .vx-spread { grid-template-columns: minmax(0, 1fr); }
+  .vx-col--media { margin-top: var(--sc-6); max-width: 40rem; }
+  .vx-colophon__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+  :root { --vx-rail: 1.25rem; }
+  .vx-title__h { font-size: var(--sc-t-2xl); }
+  .vx-intertitle { font-size: var(--sc-t-2xl); }
+  .vx-form__row { grid-template-columns: 1fr; }
+  .vx-count { grid-template-columns: repeat(2, 1fr); gap: 1.25rem 1rem; }
+  .vx-marks > li { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-js .vx-spine__fill { transition: none; }
+  .vx-spine__label,
+  .vx-spine__branch { transition: none !important; }
+}

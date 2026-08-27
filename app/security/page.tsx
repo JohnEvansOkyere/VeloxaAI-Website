@@ -3,8 +3,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Security | Veloxa Technology",
-  description: "How Veloxa Technology approaches security for this website, and how to report a vulnerability.",
+  title: "Security | Veloxa",
+  description: "How Veloxa approaches security for this website, and how to report a vulnerability.",
 };
 
 export default function SecurityPage() {

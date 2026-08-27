@@ -10,12 +10,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-cyan to-primary-blue rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.3)]">
-                <span className="text-navy-950 font-bold text-xl">V</span>
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,251,255,0.3)] p-1.5">
+                <img
+                  src="/apple-touch-icon.png"
+                  alt="Veloxa"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-display font-bold text-2xl">
-                Veloxa <span className="text-primary-cyan">Technology</span>
-              </span>
+              <span className="font-display font-bold text-2xl">Veloxa</span>
             </div>
             <p className="text-white/50 mb-6 max-w-md leading-relaxed">
               A software engineering company building the operations platforms, internal systems and AI agents behind Africa&apos;s fastest-moving teams.
@@ -111,7 +113,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/5">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs tracking-widest uppercase font-bold">
             <div className="text-white/30">
-              © {currentYear} Veloxa Technology. All rights reserved.
+              © {currentYear} Veloxa. All rights reserved.
             </div>
             <div className="flex space-x-8">
               <a href="/privacy" className="text-white/30 hover:text-primary-cyan transition-colors">

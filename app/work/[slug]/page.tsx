@@ -5,8 +5,14 @@ import Footer from "@/components/Footer";
 import CaseStudyView from "@/components/CaseStudyView";
 import { caseStudies, getCaseStudy } from "@/data/case-studies";
 
+// Slugs with a bespoke page under app/work/<slug>/ are served by that route,
+// not by this generic renderer.
+const CUSTOM_SLUGS = new Set(["fabrication-ops-platform"]);
+
 export function generateStaticParams() {
-  return caseStudies.map((study) => ({ slug: study.slug }));
+  return caseStudies
+    .filter((study) => !CUSTOM_SLUGS.has(study.slug))
+    .map((study) => ({ slug: study.slug }));
 }
 
 export async function generateMetadata({

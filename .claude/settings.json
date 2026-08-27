@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(echo \"started with PID $!\")",
+      "Bash(kill 377248)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
