@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@VexaAISolutions",
   },
 };
 
@@ -39,6 +38,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Veloxa Technology Ltd",
+  alternateName: ["Veloxa", "VeloxaTech", "Veloxa Tech", "Veloxa Technology"],
   url: siteUrl,
   description:
     "Software engineering company building operations platforms, internal systems, integrations and AI agents for businesses in Africa and abroad.",
@@ -49,7 +49,6 @@ const organizationSchema = {
   },
   sameAs: [
     "https://www.linkedin.com/company/veloxatech",
-    "https://x.com/VexaAISolutions",
     "https://github.com/VeloxaTech",
   ],
 };
