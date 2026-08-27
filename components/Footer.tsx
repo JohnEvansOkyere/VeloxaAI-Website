@@ -56,23 +56,28 @@ export default function Footer() {
             <h4 className="font-display font-bold text-lg text-white mb-6">Platforms</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#recruit" className="text-white/50 hover:text-primary-cyan transition-colors">
+                <a href="/veloxarecruit" className="text-white/50 hover:text-primary-cyan transition-colors">
                   VeloxaRecruit
                 </a>
               </li>
               <li>
-                <a href="#match" className="text-white/50 hover:text-primary-cyan transition-colors">
+                <a href="/smartmatch" className="text-white/50 hover:text-primary-cyan transition-colors">
                   SmartMatch
                 </a>
               </li>
               <li>
-                <a href="#leadgen" className="text-white/50 hover:text-primary-cyan transition-colors">
+                <a href="/leadgen" className="text-white/50 hover:text-primary-cyan transition-colors">
                   LeadGen AI
                 </a>
               </li>
               <li>
-                <a href="#support" className="text-white/50 hover:text-primary-cyan transition-colors">
-                  SmartSupport
+                <a href="/whatsapp" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  WhatsApp Commerce
+                </a>
+              </li>
+              <li>
+                <a href="/telegram" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  Telegram Booking
                 </a>
               </li>
             </ul>
@@ -83,23 +88,28 @@ export default function Footer() {
             <h4 className="font-display font-bold text-lg text-white mb-6">Company</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#about" className="text-white/50 hover:text-primary-cyan transition-colors">
+                <a href="/#about" className="text-white/50 hover:text-primary-cyan transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#features" className="text-white/50 hover:text-primary-cyan transition-colors">
-                  Capabilities
+                <a href="/#process" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  How We Work
                 </a>
               </li>
               <li>
-                <a href="#cta" className="text-white/50 hover:text-primary-cyan transition-colors">
+                <a href="/work/fabrication-ops-platform" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  Case Study
+                </a>
+              </li>
+              <li>
+                <a href="/#faq" className="text-white/50 hover:text-primary-cyan transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="/#cta" className="text-white/50 hover:text-primary-cyan transition-colors">
                   Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/50 hover:text-primary-cyan transition-colors">
-                  Careers
                 </a>
               </li>
             </ul>

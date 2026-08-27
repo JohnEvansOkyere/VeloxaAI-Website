@@ -114,7 +114,7 @@ export default function Benefits() {
             <div className="relative z-10 flex items-center gap-3 pt-8 mt-6 border-t border-white/5">
               <span className="flex h-2 w-2 rounded-full bg-primary-cyan animate-pulse" />
               <span className="text-xs text-white/50 tracking-wider">
-                Live across 6+ Ghanaian operations right now
+                Running in production for Ghanaian operators today
               </span>
             </div>
           </div>
@@ -131,21 +131,30 @@ export default function Benefits() {
 
             <div className="relative z-10">
               <p className="text-white text-xl md:text-2xl font-display font-bold leading-snug tracking-tight mb-6">
-                We hired twelve drivers and three dispatchers in three weeks. That used to take us three months.
+                If the project is a sliding window, everything in the configurator should be of benefit to a sliding window.
               </p>
               <p className="text-white/60 text-sm leading-relaxed">
-                The interviews ran themselves &mdash; even at midnight when our team was already home.
+                Real feedback from a first demo &mdash; logged verbatim, mapped to an implementation, and shipped the
+                following day.
               </p>
             </div>
 
-            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-white/10">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-cyan to-primary-blue flex items-center justify-center text-navy-950 font-black text-sm">
-                KO
+            <div className="relative z-10 pt-6 border-t border-white/10">
+              <div className="text-[10px] font-bold text-primary-cyan tracking-[0.2em] uppercase mb-1">
+                Client feedback, first demo
               </div>
-              <div>
-                <div className="text-sm font-bold text-white">Kwame Owusu</div>
-                <div className="text-xs text-white/40">Head of People &middot; Logistics group, Tema</div>
+              <div className="text-xs text-white/40 mb-4">
+                Glass &amp; aluminium fabricator &middot; Accra
               </div>
+              <a
+                href="/work/fabrication-ops-platform"
+                className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-primary-cyan transition-colors"
+              >
+                Read the engagement
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </div>
 

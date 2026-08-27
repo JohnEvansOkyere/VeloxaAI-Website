@@ -45,37 +45,37 @@ export default function Navigation() {
               Home
             </a>
             <a
-              href="#platforms"
+              href="/#platforms"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
               Platforms
             </a>
             <a
-              href="#features"
+              href="/#features"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
               Capabilities
             </a>
             <a
-              href="#benefits"
+              href="/#proof"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
-              Benefits
+              Case Study
             </a>
             <a
-              href="#testimonials"
+              href="/#process"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
-              Customers
+              How We Work
             </a>
             <a
-              href="#about"
+              href="/#about"
               className="text-white/80 hover:text-primary-cyan transition-colors font-medium"
             >
               Company
             </a>
             <a
-              href="#cta"
+              href="/#cta"
               className="bg-primary-cyan text-navy-950 px-6 py-2.5 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(0,251,255,0.4)] hover:scale-105 transition-all duration-300"
             >
               Work With Us
@@ -125,42 +125,42 @@ export default function Navigation() {
                 Home
               </a>
               <a
-                href="#platforms"
+                href="/#platforms"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Platforms
               </a>
               <a
-                href="#features"
+                href="/#features"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Capabilities
               </a>
               <a
-                href="#benefits"
+                href="/#proof"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Benefits
+                Case Study
               </a>
               <a
-                href="#testimonials"
+                href="/#process"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Customers
+                How We Work
               </a>
               <a
-                href="#about"
+                href="/#about"
                 className="text-white/80 hover:text-primary-cyan transition-colors font-medium px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Company
               </a>
               <a
-                href="#cta"
+                href="/#cta"
                 className="bg-primary-cyan text-navy-950 px-6 py-2.5 rounded-lg font-bold text-center mx-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

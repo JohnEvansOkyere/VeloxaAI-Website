@@ -31,6 +31,24 @@ export default function Features() {
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      title: "Custom Software Platforms",
+      description: "End-to-end operations platforms, internal tools and customer-facing products, engineered around the way your business actually runs instead of a template you have to bend to.",
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 015.656 0l.707.707a4 4 0 010 5.657l-2.829 2.828a4 4 0 01-5.656 0m-1.414-9.192a4 4 0 00-5.657 0l-.707.707a4 4 0 000 5.657l2.829 2.828a4 4 0 005.656 0" />
+        </svg>
+      ),
+      title: "Systems Integration",
+      description: "We connect what you already run \u2014 ERP, accounting, CRM, WhatsApp, payments \u2014 so the same numbers stop being retyped at four different desks.",
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
@@ -80,7 +98,16 @@ export default function Features() {
         </svg>
       ),
       title: "Global Scalability",
-      description: "Our infrastructure is built to handle millions of requests, ensuring your AI solutions scale globally without performance drops.",
+      description: "Our infrastructure is built to handle millions of requests, ensuring your systems scale globally without performance drops.",
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+      ),
+      title: "Data & Reporting",
+      description: "Pipelines, warehouses and dashboards that make the numbers inside your business trustworthy enough to make decisions on.",
     },
   ];
 
@@ -93,7 +120,8 @@ export default function Features() {
             Enterprise <span className="gradient-text">Capabilities</span>
           </h2>
           <p className="section-description">
-            Veloxa Technology combines architectural excellence with cutting-edge AI to deliver robust, scalable business solutions.
+            We are software engineers first. We build the platforms, integrations and data foundations your
+            business runs on &mdash; and put AI inside them where it genuinely earns its place.
           </p>
         </div>
 

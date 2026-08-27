@@ -12,31 +12,31 @@ export default function Stats() {
     | { startRange: number; endRange: number; label: string; description: string; suffix: string; isRange: true }
   > = [
     {
-      value: 67,
-      label: "Operating Costs Cut",
-      description: "Average reduction within the first 90 days",
-      suffix: "%",
-      isRange: false,
-    },
-    {
       value: 10,
-      label: "Faster Hiring Cycles",
-      description: "From six weeks of screening to under five days",
-      suffix: "x",
-      isRange: false,
-    },
-    {
-      value: 24,
-      label: "Always-On Coverage",
-      description: "Customers served while your team rests",
-      suffix: "/7",
-      isRange: false,
-    },
-    {
-      value: 30,
-      label: "Hours Reclaimed",
-      description: "Per team, every single week",
+      label: "Systems In Production",
+      description: "Shipped and running in real businesses, not demos",
       suffix: "+",
+      isRange: false,
+    },
+    {
+      value: 5,
+      label: "Countries Served",
+      description: "Clients across Africa and abroad, async-first",
+      suffix: "+",
+      isRange: false,
+    },
+    {
+      value: 100,
+      label: "Professionals Trained",
+      description: "Through our hands-on AI and automation workshops",
+      suffix: "+",
+      isRange: false,
+    },
+    {
+      value: 1,
+      label: "Month Of Discovery",
+      description: "Spent on the factory floor before writing any code",
+      suffix: "",
       isRange: false,
     },
   ];
@@ -100,7 +100,7 @@ export default function Stats() {
             The receipts
           </span>
           <p className="mt-3 text-white/50 text-sm md:text-base max-w-xl mx-auto">
-            What changes for the businesses we work with &mdash; measured, not promised.
+            Numbers we can point at, from work we have actually delivered.
           </p>
         </div>
 

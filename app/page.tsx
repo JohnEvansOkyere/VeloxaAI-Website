@@ -4,8 +4,10 @@ import Stats from "@/components/Stats";
 import Product from "@/components/Product";
 import Features from "@/components/Features";
 import Benefits from "@/components/Benefits";
-import Testimonials from "@/components/Testimonials";
+import CaseStudySpotlight from "@/components/CaseStudySpotlight";
+import Process from "@/components/Process";
 import AboutUs from "@/components/AboutUs";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -18,8 +20,10 @@ export default function Home() {
       <Product />
       <Features />
       <Benefits />
-      <Testimonials />
+      <CaseStudySpotlight />
+      <Process />
       <AboutUs />
+      <FAQ />
       <CTA />
       <Footer />
     </main>
