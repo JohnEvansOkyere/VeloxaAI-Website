@@ -1,6 +1,6 @@
 {
   "doc": {
-    "height": 14540,
+    "height": 12345,
     "vh": 844,
     "acts": [
       "pin",
@@ -18,7 +18,7 @@
   "report": [
     {
       "i": 0,
-      "y": 51,
+      "y": 0,
       "pct": 0,
       "settled": true,
       "contrast": [
@@ -46,10 +46,10 @@
       "act": "pin",
       "stages": [
         44,
-        4279,
-        7571,
-        10511,
-        12421
+        3968,
+        5254,
+        8219,
+        10241
       ],
       "segs": [],
       "custom": [],
@@ -60,8 +60,8 @@
     },
     {
       "i": 1,
-      "y": 116,
-      "pct": 1,
+      "y": 10,
+      "pct": 0,
       "settled": true,
       "contrast": [
         {
@@ -87,11 +87,11 @@
       ],
       "act": "pin",
       "stages": [
-        44,
-        4214,
-        7506,
-        10446,
-        12356
+        34,
+        3958,
+        5244,
+        8209,
+        10231
       ],
       "segs": [],
       "custom": [],
@@ -102,8 +102,8 @@
     },
     {
       "i": 2,
-      "y": 181,
-      "pct": 1,
+      "y": 21,
+      "pct": 0,
       "settled": true,
       "contrast": [
         {
@@ -129,11 +129,11 @@
       ],
       "act": "pin",
       "stages": [
-        44,
-        4149,
-        7441,
-        10381,
-        12291
+        23,
+        3947,
+        5233,
+        8198,
+        10220
       ],
       "segs": [],
       "custom": [],
@@ -144,8 +144,8 @@
     },
     {
       "i": 3,
-      "y": 245,
-      "pct": 2,
+      "y": 32,
+      "pct": 0,
       "settled": true,
       "contrast": [
         {
@@ -171,11 +171,11 @@
       ],
       "act": "pin",
       "stages": [
-        44,
-        4085,
-        7377,
-        10317,
-        12227
+        12,
+        3936,
+        5222,
+        8187,
+        10209
       ],
       "segs": [],
       "custom": [],
@@ -186,14 +186,21 @@
     },
     {
       "i": 4,
-      "y": 310,
-      "pct": 2,
+      "y": 43,
+      "pct": 0,
       "settled": true,
-      "contrast": [],
+      "contrast": [
+        {
+          "t": "Veloxa Technology Ltd · Accra, Ghana · s",
+          "dir": "light-on-dark",
+          "worst": 18.39,
+          "mean": 18.39
+        }
+      ],
       "cues": [
         {
           "t": "Veloxa Technology Ltd · Accra, Ghana · softwar",
-          "o": 0.52
+          "o": 1
         }
       ],
       "clips": [],
@@ -206,11 +213,11 @@
       ],
       "act": "pin",
       "stages": [
-        44,
-        4020,
-        7312,
-        10252,
-        12162
+        1,
+        3925,
+        5211,
+        8176,
+        10198
       ],
       "segs": [],
       "custom": [],
@@ -221,8 +228,8 @@
     },
     {
       "i": 5,
-      "y": 375,
-      "pct": 3,
+      "y": 49,
+      "pct": 0,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -236,11 +243,11 @@
       ],
       "act": "pin",
       "stages": [
-        44,
-        3955,
-        7247,
-        10187,
-        12097
+        -5,
+        3919,
+        5205,
+        8170,
+        10192
       ],
       "segs": [],
       "custom": [],
@@ -251,8 +258,8 @@
     },
     {
       "i": 6,
-      "y": 443,
-      "pct": 3,
+      "y": 646,
+      "pct": 6,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -264,13 +271,13 @@
         "none",
         "none"
       ],
-      "act": "pin",
+      "act": "flow",
       "stages": [
-        -17,
-        3887,
-        7179,
-        10119,
-        12029
+        -602,
+        3322,
+        4608,
+        7573,
+        9595
       ],
       "segs": [],
       "custom": [],
@@ -281,8 +288,8 @@
     },
     {
       "i": 7,
-      "y": 1034,
-      "pct": 8,
+      "y": 1242,
+      "pct": 11,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -296,11 +303,11 @@
       ],
       "act": "flow",
       "stages": [
-        -608,
-        3296,
-        6588,
-        9528,
-        11438
+        -1198,
+        2726,
+        4012,
+        6977,
+        8999
       ],
       "segs": [],
       "custom": [],
@@ -311,37 +318,7 @@
     },
     {
       "i": 8,
-      "y": 1626,
-      "pct": 12,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        0
-      ],
-      "wipes": [
-        "none",
-        "none"
-      ],
-      "act": "flow",
-      "stages": [
-        -1200,
-        2704,
-        5996,
-        8936,
-        10846
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 9,
-      "y": 2217,
+      "y": 1839,
       "pct": 16,
       "settled": true,
       "contrast": [],
@@ -356,11 +333,11 @@
       ],
       "act": "flow",
       "stages": [
-        -1791,
-        2113,
-        5405,
-        8345,
-        10255
+        -1795,
+        2129,
+        3415,
+        6380,
+        8402
       ],
       "segs": [],
       "custom": [],
@@ -370,9 +347,9 @@
       "bg": "#08090b"
     },
     {
-      "i": 10,
-      "y": 2651,
-      "pct": 19,
+      "i": 9,
+      "y": 2285,
+      "pct": 20,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -386,11 +363,11 @@
       ],
       "act": "flow",
       "stages": [
-        -2225,
-        1679,
-        4971,
-        7911,
-        9821
+        -2241,
+        1683,
+        2969,
+        5934,
+        7956
       ],
       "segs": [],
       "custom": [],
@@ -400,8 +377,8 @@
       "bg": "#08090b"
     },
     {
-      "i": 11,
-      "y": 2808,
+      "i": 10,
+      "y": 2436,
       "pct": 21,
       "settled": true,
       "contrast": [],
@@ -416,11 +393,41 @@
       ],
       "act": "flow",
       "stages": [
-        -2382,
-        1522,
-        4814,
-        7754,
-        9664
+        -2392,
+        1532,
+        2818,
+        5783,
+        7805
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 11,
+      "y": 2615,
+      "pct": 23,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0px 94.29%)",
+        "none"
+      ],
+      "act": "flow",
+      "stages": [
+        -2571,
+        1353,
+        2639,
+        5604,
+        7626
       ],
       "segs": [],
       "custom": [],
@@ -431,8 +438,8 @@
     },
     {
       "i": 12,
-      "y": 2980,
-      "pct": 22,
+      "y": 2944,
+      "pct": 26,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -441,16 +448,16 @@
         0
       ],
       "wipes": [
-        "inset(0px 0px 94.31%)",
+        "inset(0px 0px 24.54%)",
         "none"
       ],
       "act": "flow",
       "stages": [
-        -2554,
-        1350,
-        4642,
-        7582,
-        9492
+        -2900,
+        1024,
+        2310,
+        5275,
+        7297
       ],
       "segs": [],
       "custom": [],
@@ -461,8 +468,8 @@
     },
     {
       "i": 13,
-      "y": 3309,
-      "pct": 24,
+      "y": 3033,
+      "pct": 26,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -471,16 +478,16 @@
         0
       ],
       "wipes": [
-        "inset(0px 0px 24.4%)",
+        "inset(0px 0px 8.46%)",
         "none"
       ],
       "act": "flow",
       "stages": [
-        -2883,
-        1021,
-        4313,
-        7253,
-        9163
+        -2989,
+        935,
+        2221,
+        5186,
+        7208
       ],
       "segs": [],
       "custom": [],
@@ -491,8 +498,8 @@
     },
     {
       "i": 14,
-      "y": 3399,
-      "pct": 25,
+      "y": 3274,
+      "pct": 28,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -501,16 +508,16 @@
         0
       ],
       "wipes": [
-        "inset(0px 0px 8.2%)",
+        "inset(0px 0px 0%)",
         "none"
       ],
       "act": "flow",
       "stages": [
-        -2973,
-        931,
-        4223,
-        7163,
-        9073
+        -3230,
+        694,
+        1980,
+        4945,
+        6967
       ],
       "segs": [],
       "custom": [],
@@ -521,67 +528,7 @@
     },
     {
       "i": 15,
-      "y": 3638,
-      "pct": 27,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        0
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "none"
-      ],
-      "act": "flow",
-      "stages": [
-        -3212,
-        692,
-        3984,
-        6924,
-        8834
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 16,
-      "y": 3967,
-      "pct": 29,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        0
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "none"
-      ],
-      "act": "pin",
-      "stages": [
-        -3541,
-        363,
-        3655,
-        6595,
-        8505
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 17,
-      "y": 4296,
+      "y": 3604,
       "pct": 31,
       "settled": true,
       "contrast": [],
@@ -596,11 +543,11 @@
       ],
       "act": "pin",
       "stages": [
-        -3870,
-        44,
-        3326,
-        6266,
-        8176
+        -3560,
+        364,
+        1650,
+        4615,
+        6637
       ],
       "segs": [],
       "custom": [],
@@ -610,9 +557,9 @@
       "bg": "#08090b"
     },
     {
-      "i": 18,
-      "y": 4379,
-      "pct": 32,
+      "i": 16,
+      "y": 3934,
+      "pct": 34,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -626,11 +573,11 @@
       ],
       "act": "pin",
       "stages": [
-        -3953,
-        44,
-        3243,
-        6183,
-        8093
+        -3890,
+        34,
+        1320,
+        4285,
+        6307
       ],
       "segs": [],
       "custom": [],
@@ -640,8 +587,8 @@
       "bg": "#08090b"
     },
     {
-      "i": 19,
-      "y": 4849,
+      "i": 17,
+      "y": 3977,
       "pct": 35,
       "settled": true,
       "contrast": [],
@@ -656,11 +603,71 @@
       ],
       "act": "pin",
       "stages": [
-        -4423,
-        44,
-        2773,
-        5713,
-        7623
+        -3933,
+        -9,
+        1277,
+        4242,
+        6264
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 18,
+      "y": 4062,
+      "pct": 35,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -4018,
+        -94,
+        1192,
+        4157,
+        6179
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 19,
+      "y": 4147,
+      "pct": 36,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        0
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "none"
+      ],
+      "act": "pin",
+      "stages": [
+        -4103,
+        -179,
+        1107,
+        4072,
+        6094
       ],
       "segs": [],
       "custom": [],
@@ -671,8 +678,8 @@
     },
     {
       "i": 20,
-      "y": 5319,
-      "pct": 39,
+      "y": 4232,
+      "pct": 37,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -686,11 +693,11 @@
       ],
       "act": "pin",
       "stages": [
-        -4893,
-        44,
-        2303,
-        5243,
-        7153
+        -4188,
+        -264,
+        1022,
+        3987,
+        6009
       ],
       "segs": [],
       "custom": [],
@@ -701,8 +708,8 @@
     },
     {
       "i": 21,
-      "y": 5789,
-      "pct": 42,
+      "y": 4316,
+      "pct": 38,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -716,11 +723,11 @@
       ],
       "act": "pin",
       "stages": [
-        -5363,
-        44,
-        1833,
-        4773,
-        6683
+        -4272,
+        -348,
+        938,
+        3903,
+        5925
       ],
       "segs": [],
       "custom": [],
@@ -731,8 +738,8 @@
     },
     {
       "i": 22,
-      "y": 6259,
-      "pct": 46,
+      "y": 4401,
+      "pct": 38,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -746,11 +753,11 @@
       ],
       "act": "pin",
       "stages": [
-        -5833,
-        44,
-        1363,
-        4303,
-        6213
+        -4357,
+        -433,
+        853,
+        3818,
+        5840
       ],
       "segs": [],
       "custom": [],
@@ -761,38 +768,8 @@
     },
     {
       "i": 23,
-      "y": 6729,
-      "pct": 49,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        0
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "none"
-      ],
-      "act": "pin",
-      "stages": [
-        -6303,
-        44,
-        893,
-        3833,
-        5743
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 24,
-      "y": 7642,
-      "pct": 56,
+      "y": 5274,
+      "pct": 46,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -806,11 +783,41 @@
       ],
       "act": "pan",
       "stages": [
-        -7216,
-        -820,
+        -5230,
+        -1306,
         44,
-        2920,
-        4830
+        2945,
+        4967
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 24,
+      "y": 5469,
+      "pct": 48,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -385
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "none"
+      ],
+      "act": "pan",
+      "stages": [
+        -5425,
+        -1501,
+        44,
+        2750,
+        4772
       ],
       "segs": [],
       "custom": [],
@@ -821,14 +828,14 @@
     },
     {
       "i": 25,
-      "y": 7836,
-      "pct": 57,
+      "y": 5663,
+      "pct": 49,
       "settled": true,
       "contrast": [],
       "cues": [],
       "clips": [],
       "rails": [
-        -384
+        -732
       ],
       "wipes": [
         "inset(0px 0px 0%)",
@@ -836,11 +843,11 @@
       ],
       "act": "pan",
       "stages": [
-        -7410,
-        -1014,
+        -5619,
+        -1695,
         44,
-        2726,
-        4636
+        2556,
+        4578
       ],
       "segs": [],
       "custom": [],
@@ -851,14 +858,14 @@
     },
     {
       "i": 26,
-      "y": 8031,
-      "pct": 59,
+      "y": 5858,
+      "pct": 51,
       "settled": true,
       "contrast": [],
       "cues": [],
       "clips": [],
       "rails": [
-        -733
+        -1081
       ],
       "wipes": [
         "inset(0px 0px 0%)",
@@ -866,11 +873,11 @@
       ],
       "act": "pan",
       "stages": [
-        -7605,
-        -1209,
+        -5814,
+        -1890,
         44,
-        2531,
-        4441
+        2361,
+        4383
       ],
       "segs": [],
       "custom": [],
@@ -881,14 +888,14 @@
     },
     {
       "i": 27,
-      "y": 8225,
-      "pct": 60,
+      "y": 6052,
+      "pct": 53,
       "settled": true,
       "contrast": [],
       "cues": [],
       "clips": [],
       "rails": [
-        -1080
+        -1429
       ],
       "wipes": [
         "inset(0px 0px 0%)",
@@ -896,11 +903,11 @@
       ],
       "act": "pan",
       "stages": [
-        -7799,
-        -1403,
+        -6008,
+        -2084,
         44,
-        2337,
-        4247
+        2167,
+        4189
       ],
       "segs": [],
       "custom": [],
@@ -911,26 +918,26 @@
     },
     {
       "i": 28,
-      "y": 8420,
-      "pct": 61,
+      "y": 6247,
+      "pct": 54,
       "settled": true,
       "contrast": [],
       "cues": [],
       "clips": [],
       "rails": [
-        -1430
+        -1778
       ],
       "wipes": [
         "inset(0px 0px 0%)",
-        "none"
+        "inset(0px 100% 0px 0px)"
       ],
       "act": "pan",
       "stages": [
-        -7994,
-        -1598,
+        -6203,
+        -2279,
         44,
-        2142,
-        4052
+        1972,
+        3994
       ],
       "segs": [],
       "custom": [],
@@ -941,14 +948,14 @@
     },
     {
       "i": 29,
-      "y": 8614,
-      "pct": 63,
+      "y": 6306,
+      "pct": 55,
       "settled": true,
       "contrast": [],
       "cues": [],
       "clips": [],
       "rails": [
-        -1777
+        -1814
       ],
       "wipes": [
         "inset(0px 0px 0%)",
@@ -956,11 +963,11 @@
       ],
       "act": "pan",
       "stages": [
-        -8188,
-        -1792,
-        44,
-        1948,
-        3858
+        -6262,
+        -2338,
+        5,
+        1913,
+        3935
       ],
       "segs": [],
       "custom": [],
@@ -971,8 +978,8 @@
     },
     {
       "i": 30,
-      "y": 8673,
-      "pct": 63,
+      "y": 6681,
+      "pct": 58,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -986,11 +993,11 @@
       ],
       "act": "pan",
       "stages": [
-        -8247,
-        -1851,
-        5,
-        1889,
-        3799
+        -6637,
+        -2713,
+        -370,
+        1538,
+        3560
       ],
       "segs": [],
       "custom": [],
@@ -1001,8 +1008,8 @@
     },
     {
       "i": 31,
-      "y": 9043,
-      "pct": 66,
+      "y": 7056,
+      "pct": 61,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1012,15 +1019,15 @@
       ],
       "wipes": [
         "inset(0px 0px 0%)",
-        "inset(0px 100% 0px 0px)"
+        "inset(0px 84.68% 0px 0px)"
       ],
-      "act": "pan",
+      "act": "flow",
       "stages": [
-        -8617,
-        -2221,
-        -365,
-        1519,
-        3429
+        -7012,
+        -3088,
+        -745,
+        1163,
+        3185
       ],
       "segs": [],
       "custom": [],
@@ -1031,38 +1038,8 @@
     },
     {
       "i": 32,
-      "y": 9413,
-      "pct": 69,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 84.81% 0px 0px)"
-      ],
-      "act": "flow",
-      "stages": [
-        -8987,
-        -2591,
-        -735,
-        1149,
-        3059
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 33,
-      "y": 9783,
-      "pct": 71,
+      "y": 7430,
+      "pct": 65,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1076,11 +1053,41 @@
       ],
       "act": "flow",
       "stages": [
-        -9357,
-        -2961,
-        -1105,
-        779,
-        2689
+        -7386,
+        -3462,
+        -1119,
+        789,
+        2811
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 33,
+      "y": 7805,
+      "pct": 68,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -7761,
+        -3837,
+        -1494,
+        414,
+        2436
       ],
       "segs": [],
       "custom": [],
@@ -1091,7 +1098,157 @@
     },
     {
       "i": 34,
-      "y": 10153,
+      "y": 8180,
+      "pct": 71,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8136,
+        -4212,
+        -1869,
+        39,
+        2061
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 35,
+      "y": 8226,
+      "pct": 72,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8182,
+        -4258,
+        -1915,
+        -7,
+        2015
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 36,
+      "y": 8296,
+      "pct": 72,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8252,
+        -4328,
+        -1985,
+        -77,
+        1945
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 37,
+      "y": 8366,
+      "pct": 73,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8322,
+        -4398,
+        -2055,
+        -147,
+        1875
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 38,
+      "y": 8436,
+      "pct": 73,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -8392,
+        -4468,
+        -2125,
+        -217,
+        1805
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 39,
+      "y": 8506,
       "pct": 74,
       "settled": true,
       "contrast": [],
@@ -1106,161 +1263,11 @@
       ],
       "act": "pin",
       "stages": [
-        -9727,
-        -3331,
-        -1475,
-        409,
-        2319
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 35,
-      "y": 10523,
-      "pct": 77,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10097,
-        -3701,
-        -1845,
-        44,
-        1949
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 36,
-      "y": 10567,
-      "pct": 77,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10141,
-        -3745,
-        -1889,
-        44,
-        1905
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 37,
-      "y": 10615,
-      "pct": 78,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10189,
-        -3793,
-        -1937,
-        44,
-        1857
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 38,
-      "y": 10664,
-      "pct": 78,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10238,
-        -3842,
-        -1986,
-        44,
-        1808
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 39,
-      "y": 10712,
-      "pct": 78,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10286,
-        -3890,
-        -2034,
-        44,
-        1760
+        -8462,
+        -4538,
+        -2195,
+        -287,
+        1735
       ],
       "segs": [],
       "custom": [],
@@ -1271,8 +1278,8 @@
     },
     {
       "i": 40,
-      "y": 10761,
-      "pct": 79,
+      "y": 8576,
+      "pct": 75,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1286,11 +1293,11 @@
       ],
       "act": "pin",
       "stages": [
-        -10335,
-        -3939,
-        -2083,
-        44,
-        1711
+        -8532,
+        -4608,
+        -2265,
+        -357,
+        1665
       ],
       "segs": [],
       "custom": [],
@@ -1301,8 +1308,8 @@
     },
     {
       "i": 41,
-      "y": 10809,
-      "pct": 79,
+      "y": 8617,
+      "pct": 75,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1316,40 +1323,10 @@
       ],
       "act": "pin",
       "stages": [
-        -10383,
-        -3987,
-        -2131,
-        44,
-        1663
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 42,
-      "y": 10848,
-      "pct": 79,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -10422,
-        -4026,
-        -2170,
-        11,
+        -8573,
+        -4649,
+        -2306,
+        -398,
         1624
       ],
       "segs": [],
@@ -1360,9 +1337,9 @@
       "bg": "#08090b"
     },
     {
-      "i": 43,
-      "y": 11166,
-      "pct": 82,
+      "i": 42,
+      "y": 8935,
+      "pct": 78,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1376,10 +1353,10 @@
       ],
       "act": "pin",
       "stages": [
-        -10740,
-        -4344,
-        -2488,
-        -307,
+        -8891,
+        -4967,
+        -2624,
+        -716,
         1306
       ],
       "segs": [],
@@ -1390,9 +1367,9 @@
       "bg": "#08090b"
     },
     {
-      "i": 44,
-      "y": 11484,
-      "pct": 84,
+      "i": 43,
+      "y": 9253,
+      "pct": 80,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1406,10 +1383,10 @@
       ],
       "act": "flow",
       "stages": [
-        -11058,
-        -4662,
-        -2806,
-        -625,
+        -9209,
+        -5285,
+        -2942,
+        -1034,
         988
       ],
       "segs": [],
@@ -1420,8 +1397,38 @@
       "bg": "#08090b"
     },
     {
+      "i": 44,
+      "y": 9571,
+      "pct": 83,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "flow",
+      "stages": [
+        -9527,
+        -5603,
+        -3260,
+        -1352,
+        670
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
       "i": 45,
-      "y": 11802,
+      "y": 9889,
       "pct": 86,
       "settled": true,
       "contrast": [],
@@ -1434,42 +1441,12 @@
         "inset(0px 0px 0%)",
         "inset(0px 0% 0px 0px)"
       ],
-      "act": "flow",
-      "stages": [
-        -11376,
-        -4980,
-        -3124,
-        -943,
-        670
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 46,
-      "y": 12120,
-      "pct": 88,
-      "settled": true,
-      "contrast": [],
-      "cues": [],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
       "act": "pin",
       "stages": [
-        -11694,
-        -5298,
-        -3442,
-        -1261,
+        -9845,
+        -5921,
+        -3578,
+        -1670,
         352
       ],
       "segs": [],
@@ -1480,9 +1457,9 @@
       "bg": "#08090b"
     },
     {
-      "i": 47,
-      "y": 12439,
-      "pct": 91,
+      "i": 46,
+      "y": 10208,
+      "pct": 89,
       "settled": true,
       "contrast": [],
       "cues": [],
@@ -1496,11 +1473,41 @@
       ],
       "act": "pin",
       "stages": [
-        -12013,
-        -5617,
-        -3761,
-        -1580,
-        44
+        -10164,
+        -6240,
+        -3897,
+        -1989,
+        33
+      ],
+      "segs": [],
+      "custom": [],
+      "customHold": false,
+      "seg": null,
+      "segp": null,
+      "bg": "#08090b"
+    },
+    {
+      "i": 47,
+      "y": 10245,
+      "pct": 89,
+      "settled": true,
+      "contrast": [],
+      "cues": [],
+      "clips": [],
+      "rails": [
+        -1814
+      ],
+      "wipes": [
+        "inset(0px 0px 0%)",
+        "inset(0px 0% 0px 0px)"
+      ],
+      "act": "pin",
+      "stages": [
+        -10201,
+        -6277,
+        -3934,
+        -2026,
+        -4
       ],
       "segs": [],
       "custom": [],
@@ -1511,11 +1518,23 @@
     },
     {
       "i": 48,
-      "y": 12475,
-      "pct": 91,
+      "y": 10284,
+      "pct": 89,
       "settled": true,
-      "contrast": [],
-      "cues": [],
+      "contrast": [
+        {
+          "t": "Open a threadTell us what is being retyp",
+          "dir": "light-on-dark",
+          "worst": 18.39,
+          "mean": 18.4
+        }
+      ],
+      "cues": [
+        {
+          "t": "Open a threadTell us what is being retyped.Tha",
+          "o": 1
+        }
+      ],
       "clips": [],
       "rails": [
         -1814
@@ -1526,11 +1545,11 @@
       ],
       "act": "pin",
       "stages": [
-        -12049,
-        -5653,
-        -3797,
-        -1616,
-        44
+        -10240,
+        -6316,
+        -3973,
+        -2065,
+        -43
       ],
       "segs": [],
       "custom": [],
@@ -1541,15 +1560,15 @@
     },
     {
       "i": 49,
-      "y": 12507,
-      "pct": 91,
+      "y": 10323,
+      "pct": 90,
       "settled": true,
       "contrast": [
         {
           "t": "Open a threadTell us what is being retyp",
           "dir": "light-on-dark",
           "worst": 18.39,
-          "mean": 18.39
+          "mean": 18.4
         }
       ],
       "cues": [
@@ -1568,11 +1587,11 @@
       ],
       "act": "pin",
       "stages": [
-        -12081,
-        -5685,
-        -3829,
-        -1648,
-        44
+        -10279,
+        -6355,
+        -4012,
+        -2104,
+        -82
       ],
       "segs": [],
       "custom": [],
@@ -1583,15 +1602,15 @@
     },
     {
       "i": 50,
-      "y": 12540,
-      "pct": 92,
+      "y": 10362,
+      "pct": 90,
       "settled": true,
       "contrast": [
         {
           "t": "Open a threadTell us what is being retyp",
           "dir": "light-on-dark",
           "worst": 18.39,
-          "mean": 18.39
+          "mean": 18.4
         }
       ],
       "cues": [
@@ -1610,11 +1629,11 @@
       ],
       "act": "pin",
       "stages": [
-        -12114,
-        -5718,
-        -3862,
-        -1681,
-        44
+        -10318,
+        -6394,
+        -4051,
+        -2143,
+        -121
       ],
       "segs": [],
       "custom": [],
@@ -1625,15 +1644,15 @@
     },
     {
       "i": 51,
-      "y": 12572,
-      "pct": 92,
+      "y": 10401,
+      "pct": 90,
       "settled": true,
       "contrast": [
         {
           "t": "Open a threadTell us what is being retyp",
           "dir": "light-on-dark",
           "worst": 18.39,
-          "mean": 18.39
+          "mean": 18.4
         }
       ],
       "cues": [
@@ -1652,11 +1671,11 @@
       ],
       "act": "pin",
       "stages": [
-        -12146,
-        -5750,
-        -3894,
-        -1713,
-        44
+        -10357,
+        -6433,
+        -4090,
+        -2182,
+        -160
       ],
       "segs": [],
       "custom": [],
@@ -1667,15 +1686,15 @@
     },
     {
       "i": 52,
-      "y": 12605,
-      "pct": 92,
+      "y": 10440,
+      "pct": 91,
       "settled": true,
       "contrast": [
         {
           "t": "Open a threadTell us what is being retyp",
           "dir": "light-on-dark",
           "worst": 18.39,
-          "mean": 18.39
+          "mean": 18.4
         }
       ],
       "cues": [
@@ -1694,11 +1713,11 @@
       ],
       "act": "pin",
       "stages": [
-        -12179,
-        -5783,
-        -3927,
-        -1746,
-        44
+        -10396,
+        -6472,
+        -4129,
+        -2221,
+        -199
       ],
       "segs": [],
       "custom": [],
@@ -1709,49 +1728,7 @@
     },
     {
       "i": 53,
-      "y": 12637,
-      "pct": 92,
-      "settled": true,
-      "contrast": [
-        {
-          "t": "Open a threadTell us what is being retyp",
-          "dir": "light-on-dark",
-          "worst": 18.39,
-          "mean": 18.39
-        }
-      ],
-      "cues": [
-        {
-          "t": "Open a threadTell us what is being retyped.Tha",
-          "o": 1
-        }
-      ],
-      "clips": [],
-      "rails": [
-        -1814
-      ],
-      "wipes": [
-        "inset(0px 0px 0%)",
-        "inset(0px 0% 0px 0px)"
-      ],
-      "act": "pin",
-      "stages": [
-        -12211,
-        -5815,
-        -3959,
-        -1778,
-        44
-      ],
-      "segs": [],
-      "custom": [],
-      "customHold": false,
-      "seg": null,
-      "segp": null,
-      "bg": "#08090b"
-    },
-    {
-      "i": 54,
-      "y": 13696,
+      "y": 11501,
       "pct": 100,
       "settled": true,
       "contrast": [],
@@ -1766,11 +1743,11 @@
       ],
       "act": "-",
       "stages": [
-        -13270,
-        -6874,
-        -5018,
-        -2837,
-        -1012
+        -11457,
+        -7533,
+        -5190,
+        -3282,
+        -1260
       ],
       "segs": [],
       "custom": [],

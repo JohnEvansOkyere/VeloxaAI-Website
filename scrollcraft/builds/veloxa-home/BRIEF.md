@@ -379,12 +379,56 @@ requests**, **all cues clear 4.5:1 at their worst frame**.
   `/veloxarecruit` and `/privacy` all return 200. The shared `<Navigation>` bar
   is untouched and still renders on all eleven non-home routes.
 
+## Mobile pass (asked for after the first ship, and it found real defects)
+
+The harness had reported mobile clean — no dead scroll, contrast passing — and
+it was right about both, but neither question is "is this usable on a phone".
+A separate audit (`mobile-audit.mjs` in this folder, run at 320 / 360 / 390 /
+430 / 768 with touch emulation) checked horizontal overflow, tap-target size and
+rendered type size. Three defects, one of them serious:
+
+1. **Every tall pinned act clipped its own content.** A pinned stage is one
+   `overflow: clip` screen. On a 390x844 phone the wiring board, the controls
+   panel and the contact form are all taller than that, so their last rows were
+   simply cut off and unreachable: the board's sixth system and its stepper, the
+   fourth guarantee, and — worst — **the contact form's submit button**. The
+   close was unusable on a phone. Below 900px every pinned act now un-pins and
+   its content flows. The hero un-pins too: it fitted on a 844px screen with
+   25px to spare, which is not a margin, and it does not fit a 667px iPhone SE.
+2. **The board had no honest phone behaviour.** With the act un-pinned there is
+   no pinned travel to drive it from, and the cables are not drawn below 900px
+   anyway. The chain now lights **node by node as each scrolls into view**, via
+   IntersectionObserver, mapped onto the same thresholds the desktop pulses use,
+   so the readouts populate in the same order and the re-key counter still falls
+   to zero. "It builds itself" survives the translation instead of being
+   switched off. The stepper is simply present rather than revealed.
+3. **22 tap targets under 40px and type down to 9.6px.** The quantity stepper —
+   the one control the page asks a visitor to use — was 30x30. Under
+   `pointer: coarse` the stepper is 44x44, fields are 46px, links and the footer's
+   link lists get a 40-44px hit area, and the status bar grows to 52px so its
+   action can reach 40px. Below 900px the uppercase mono label family is floored
+   at 12px.
+
+**After the fixes**, at 320 / 360 / 390 / 430 / 768:
+
+- **No horizontal overflow at any width.** Zero elements poking past the
+  viewport outside a deliberate scroll region.
+- **Tap targets under 40px: 22 → 1**, and the one left is the shared footer's
+  "FAQ" link at 31px wide (40px tall) — narrow because the word is three
+  letters. It clears the 24x24 minimum and is pre-existing footer markup.
+- **Smallest rendered type: 9.6px → 12px.**
+- **Mobile page length: 17.4 vh → 14.6 vh**, because un-pinning removed several
+  screens of empty pinned travel.
+- Harness re-run clean on all three profiles; desktop unchanged at 13.9 vh.
+
 ## Not verified
 
-- **A real iOS or Android device.** Headless Chrome cannot reproduce a phone's
-  touch scrolling or compositor. This build ships **no video**, which removes
-  the usual mobile failure mode, but the fixed status bar plus a long pinned act
-  is worth one pass on a real handset.
+- **A real iOS or Android device.** Chrome with touch emulation is not a phone:
+  it cannot reproduce iOS momentum scrolling, the dynamic URL bar's effect on
+  `100svh`, or Safari's handling of a `position: fixed` bar during a rubber-band
+  scroll. This build ships **no video**, which removes the usual mobile failure
+  mode, and every pinned act is now un-pinned below 900px, which removes the
+  other one. Still worth one pass on a real handset.
 - **The contact form actually delivering mail.** `StartForm` posts to the
   existing, already-working `/api/contact` + Resend route with the same field
   contract; the route itself was not exercised.

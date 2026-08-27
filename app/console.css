@@ -1086,6 +1086,27 @@ html:not(.vx-js) .vx-console [data-sc-cue] { opacity: 1 !important; transform: n
 .vx-console [data-sc-act="pin"],
 .vx-console [data-sc-act="pan"] { position: relative; min-height: 100svh; }
 
+/* A pinned stage is one clipped screen. On a phone the board, the controls
+   panel and the contact form are all taller than that, so pinning them hides
+   their last rows: the wiring board's final system and its stepper, the fourth
+   guarantee, and the form's submit button. Below 900px every pinned act
+   un-pins and its content simply flows. The engine writes the act height as an
+   inline style, so this has to out-rank it. */
+@media (max-width: 899px) {
+  .vx-console [data-sc-act="pin"] {
+    height: auto !important;
+    min-height: 0;
+  }
+  .vx-console [data-sc-act="pin"] > [data-sc-stage],
+  .vx-console [data-sc-act="pin"] > .sc-stage {
+    position: static;
+    height: auto;
+    overflow: visible;
+    display: block;
+    padding-block: clamp(2.75rem, 8vw, 4rem);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
@@ -1165,3 +1186,57 @@ html:not(.vx-js) .vx-console [data-sc-cue] { opacity: 1 !important; transform: n
 
 html:not(.vx-js) .vx-console [data-sc-in],
 html:not(.vx-js) .vx-console [data-sc-stagger] > * { opacity: 1; transform: none; }
+
+/* ================================================================== TOUCH ==
+   Everything below is about a finger rather than a pointer.                */
+
+@media (pointer: coarse) {
+  /* A little more bar so the action inside it can reach a real tap height. */
+  .vx-console { --vx-status-h: 52px; }
+  .vx-status__action { min-height: 40px; }
+
+  /* 30x30 is not a tap target, and the stepper is the one control on the page
+     that has to be operable. */
+  .vx-step { width: 2.75rem; height: 2.75rem; font-size: 1.2rem; }
+  .vx-op { gap: 0.75rem 1.1rem; }
+  .vx-op input[type="number"] { min-height: 2.75rem; width: 7.5rem; }
+  .vx-op__note { margin-inline-start: 0; flex-basis: 100%; }
+
+  .vx-field input, .vx-field textarea { min-height: 2.9rem; }
+
+  .vx-link, .vx-module__go, .vx-rec__go { min-height: 44px; }
+  .vx-btn { min-height: 46px; }
+  .vx-status__brand { min-height: 44px; align-items: center; }
+  .vx-status__action { display: inline-flex; align-items: center; }
+  .vx-rail a { min-height: 40px; }
+
+  /* The shared footer's link lists render at 20px tall on a phone. */
+  .vx-console footer a { display: inline-flex; align-items: center; min-height: 40px; }
+  .vx-rec__body h3 a { min-height: 40px; }
+}
+
+/* Uppercase mono labels bottom out at 9.6px on the desktop scale, which is not
+   readable on a handset. Floor the whole label family at 12px there. */
+@media (max-width: 899px) {
+  .vx-node__stamp,
+  .vx-node__feed,
+  .vx-guard__state,
+  .vx-rec__status,
+  .vx-field label,
+  .vx-op__label,
+  .vx-module__go,
+  .vx-guard__pips,
+  .vx-module__kind { font-size: 0.75rem; }
+
+  .vx-panel__bar,
+  .vx-board__head,
+  .vx-rec__meta,
+  .vx-fig figcaption,
+  .vx-status,
+  .vx-rail a,
+  .vx-op__note,
+  .vx-mono { font-size: 0.72rem; }
+
+  .vx-ledger thead th { font-size: 0.72rem; }
+  .vx-receipt__d { font-size: 0.82rem; }
+}

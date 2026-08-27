@@ -101,6 +101,18 @@ export function WiringBoard() {
 
   const [qty, setQty] = useState(SAMPLE.qty);
   const [unit, setUnit] = useState(SAMPLE.unit);
+  /** Below 900px the act is un-pinned (console.css), so there is no pinned
+   *  travel to drive the board from and the cables are not drawn at all. The
+   *  chain lights node by node on entry instead. */
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 899px)");
+    const sync = () => setNarrow(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   /** How far the record has travelled, kept outside React so the frame loop can
    *  read it without a render. Updated by the scroll loop. */
@@ -161,6 +173,78 @@ export function WiringBoard() {
     const stLink = document.getElementById("vx-st-link");
     const stRekey = document.getElementById("vx-st-rekey");
 
+    /** Re-keys remaining once `linked` cables have carried the record. */
+    const rekeysAfter = (linked: number) => {
+      let remaining = TOTAL_REKEYS;
+      for (let i = 0; i < linked; i++) {
+        const spec = NODES.find((n) => n.slot === WIRE_TARGET[i]);
+        remaining -= spec ? spec.rekey : 0;
+      }
+      return remaining;
+    };
+
+    const report = (linked: number, remaining: number) => {
+      if (rekeyRef.current) rekeyRef.current.textContent = String(remaining);
+      if (stRekey) stRekey.textContent = String(remaining);
+      root.classList.toggle("is-clear", remaining === 0);
+      if (linkRef.current) linkRef.current.textContent = String(linked);
+      if (stLink) stLink.textContent = String(linked);
+      if (stSys) stSys.setAttribute("data-linked", String(linked));
+    };
+
+    // ---- phone: the chain lights as each system scrolls into view ---------
+    if (narrow) {
+      const order: Slot[] = ["design", ...WIRE_TARGET];
+      const lit = new Set<Slot>();
+
+      const settle = () => {
+        let n = 0;
+        for (const slot of order) {
+          if (!lit.has(slot)) break;
+          n++;
+        }
+        // Map the count onto the same thresholds paint() reads, so the readouts
+        // populate in exactly the order the desktop pulses put them in.
+        reached.current = n === 0 ? 0 : n === 1 ? FLOW_AT[0][0] : FLOW_AT[n - 2][1];
+        const linked = Math.max(0, n - 1);
+        report(linked, rekeysAfter(linked));
+        paint();
+      };
+
+      if (reduce) {
+        order.forEach((slot) => {
+          lit.add(slot);
+          nodeEls.get(slot)?.classList.add("is-live");
+        });
+        settle();
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (!e.isIntersecting) return;
+              const el = e.target as HTMLElement;
+              lit.add(el.dataset.slot as Slot);
+              el.classList.add("is-live");
+              io.unobserve(el);
+            });
+            settle();
+          },
+          { rootMargin: "0px 0px -22% 0px", threshold: 0.4 }
+        );
+        nodeEls.forEach((el) => io.observe(el));
+        settle();
+      }
+
+      // No pinned travel to reveal it with, so the control is simply there.
+      root.style.setProperty("--op-in", "1");
+      for (let i = 0; i < CABLES.length; i++) {
+        root.style.setProperty(`--c${i + 1}`, "0");
+        root.style.setProperty(`--f${i + 1}`, "0");
+        root.style.setProperty(`--p${i + 1}`, "0");
+      }
+      return;
+    }
+
     let raf = 0;
     let lastRekey = -1;
     let lastLinked = -1;
@@ -201,17 +285,10 @@ export function WiringBoard() {
           remaining -= s ? s.rekey : 0;
         }
       }
-      if (remaining !== lastRekey) {
+      if (remaining !== lastRekey || linked !== lastLinked) {
         lastRekey = remaining;
-        if (rekeyRef.current) rekeyRef.current.textContent = String(remaining);
-        if (stRekey) stRekey.textContent = String(remaining);
-        root.classList.toggle("is-clear", remaining === 0);
-      }
-      if (linked !== lastLinked) {
         lastLinked = linked;
-        if (linkRef.current) linkRef.current.textContent = String(linked);
-        if (stLink) stLink.textContent = String(linked);
-        if (stSys) stSys.setAttribute("data-linked", String(linked));
+        report(linked, remaining);
       }
 
       paint();
@@ -229,7 +306,7 @@ export function WiringBoard() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [paint]);
+  }, [paint, narrow]);
 
   return (
     <div className="vx-board" ref={rootRef}>

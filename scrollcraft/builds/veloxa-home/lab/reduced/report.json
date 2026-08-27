@@ -1544,18 +1544,11 @@
       "y": 10982,
       "pct": 95,
       "settled": true,
-      "contrast": [
-        {
-          "t": "Open a threadTell us what is being retyp",
-          "dir": "light-on-dark",
-          "worst": 18.39,
-          "mean": 18.39
-        }
-      ],
+      "contrast": [],
       "cues": [
         {
           "t": "Open a threadTell us what is being retyped.Tha",
-          "o": 1
+          "o": 0.22
         }
       ],
       "clips": [],
@@ -1758,8 +1751,8 @@
         {
           "t": "Open a threadTell us what is being retyp",
           "dir": "light-on-dark",
-          "worst": 16.85,
-          "mean": 18.39
+          "worst": 12.78,
+          "mean": 18.3
         }
       ],
       "cues": [
