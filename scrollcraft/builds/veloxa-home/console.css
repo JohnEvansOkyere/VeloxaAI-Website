@@ -1,0 +1,1167 @@
+/* ============================================================================
+   Veloxa — home page (/) console surface
+   Theme layer over scrollcraft.css. Grammar: live surface.
+
+   Palette is the brand's, unchanged:
+     #020617 midnight navy (canvas)   #0F172A navy-900 (peak ground / panels)
+     #1E293B slate                    #00FBFF neon cyan (the one accent)
+     #0EA5E9 supporting blue (brand gradient partner, surfaces only)
+
+   Everything is scoped under .vx-console so this file cannot leak into the
+   other routes when Next bundles it.
+   ========================================================================== */
+
+.vx-console {
+  --sc-canvas:      #020617;
+  --sc-surface:     #0F172A;
+  --sc-panel:       #0B1220;
+  --sc-ink:         #F1F5F9;
+  --sc-ink-soft:    #94A6BC;
+  --sc-ink-faint:   #64748B;
+  --sc-accent:      #00FBFF;
+  --sc-accent-2:    #0EA5E9;
+  --sc-accent-ink:  #02121B;
+
+  --sc-hairline:        rgba(148, 166, 188, 0.16);
+  --sc-hairline-strong: rgba(148, 166, 188, 0.30);
+
+  --sc-font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --sc-font-text:    "Inter", system-ui, -apple-system, sans-serif;
+  --vx-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+
+  --sc-shadow-color: 222 60% 2%;
+  --sc-e1: 0 1px 2px hsl(var(--sc-shadow-color) / 0.45);
+  --sc-e2: 0 12px 34px -14px hsl(var(--sc-shadow-color) / 0.6);
+  --sc-e3: 0 34px 80px -32px hsl(var(--sc-shadow-color) / 0.7);
+  --sc-edge: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  --vx-status-h: 44px;
+  --vx-rail-w: 13rem;
+  --vx-maxw: 84rem;
+  --vx-gutter: clamp(1.15rem, 4vw, 3.5rem);
+
+  background: var(--sc-canvas);
+  color: var(--sc-ink);
+  font-family: var(--sc-font-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light text on a dark ground needs a touch more leading and tracking, and one
+   step more weight, or it renders thin and blurry. */
+.vx-console p { letter-spacing: 0.004em; }
+
+.vx-console ::selection { background: var(--sc-accent); color: var(--sc-accent-ink); }
+.vx-console a { color: inherit; }
+.vx-console :focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------------------------------------------------------------- primitives */
+
+.vx-mono {
+  font-family: var(--vx-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.vx-num { font-variant-numeric: tabular-nums; font-family: var(--vx-mono); }
+
+.vx-wrap {
+  max-width: var(--vx-maxw);
+  margin-inline: auto;
+  padding-inline: var(--vx-gutter);
+  width: 100%;
+}
+
+.vx-section {
+  position: relative;
+  padding-block: clamp(2.75rem, 5vw, 5rem);
+  background: var(--sc-canvas);
+  border-top: 1px solid var(--sc-hairline);
+}
+
+/* A flow section directly after a pinned act takes reduced top padding: the
+   pinned stage already spent a viewport scrolling itself off. */
+.vx-section--tight { padding-block-start: clamp(2rem, 4vw, 3.5rem); }
+
+.vx-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sc-accent);
+  font-family: var(--vx-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.vx-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--sc-accent);
+  border-radius: 50%;
+}
+
+.vx-h {
+  font-family: var(--sc-font-display);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.08;
+  text-wrap: balance;
+  font-size: clamp(1.65rem, 1.1rem + 1.9vw, 2.6rem);
+  margin: 0;
+}
+.vx-h--sm { font-size: clamp(1.25rem, 1rem + 0.9vw, 1.6rem); }
+
+.vx-body {
+  color: var(--sc-ink-soft);
+  font-size: clamp(0.98rem, 0.94rem + 0.16vw, 1.08rem);
+  line-height: 1.68;
+  max-width: 62ch;
+  text-wrap: pretty;
+  margin: 0;
+}
+
+.vx-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--sc-ink);
+  transition: color var(--sc-d-fast, 160ms) var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.vx-link::after {
+  content: "";
+  width: 1.75rem; height: 1px;
+  background: var(--sc-hairline-strong);
+  transition: width 180ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+              background-color 180ms linear;
+}
+@media (hover: hover) and (pointer: fine) {
+  .vx-link:hover { color: var(--sc-accent); }
+  .vx-link:hover::after { width: 2.75rem; background: var(--sc-accent); }
+}
+
+.vx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.72rem 1.35rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: linear-gradient(100deg, var(--sc-accent), var(--sc-accent-2));
+  color: var(--sc-accent-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 130ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+              filter 130ms linear;
+}
+.vx-btn:active { transform: translateY(1px); }
+@media (hover: hover) and (pointer: fine) {
+  .vx-btn:hover { filter: brightness(1.08); }
+}
+.vx-btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+.vx-btn--ghost {
+  background: transparent;
+  color: var(--sc-ink);
+  border-color: var(--sc-hairline-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .vx-btn--ghost:hover { border-color: var(--sc-accent); color: var(--sc-accent); filter: none; }
+}
+
+/* ------------------------------------------------------------- app chrome */
+
+.vx-status {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 80;
+  height: var(--vx-status-h);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: clamp(0.85rem, 3vw, 1.5rem);
+  background: rgba(2, 6, 23, 0.88);
+  backdrop-filter: blur(14px);
+  border-block-end: 1px solid var(--sc-hairline);
+  font-family: var(--vx-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.vx-status__brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sc-ink);
+  flex: none;
+}
+.vx-status__brand span { color: var(--sc-ink-faint); font-weight: 500; }
+
+.vx-status__state {
+  display: none;
+  align-items: center;
+  gap: 1.25rem;
+  margin-inline: auto;
+  color: var(--sc-ink-faint);
+  text-transform: uppercase;
+}
+.vx-status__state b {
+  color: var(--sc-ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.vx-status__state b.is-live { color: var(--sc-accent); }
+@media (min-width: 800px) { .vx-status__state { display: flex; } }
+
+.vx-status__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sc-ink-faint);
+  margin-inline-end: 0.4rem;
+  display: inline-block;
+  transition: background-color 300ms linear, box-shadow 300ms linear;
+}
+.vx-status__state[data-linked="5"] .vx-status__dot {
+  background: var(--sc-accent);
+  box-shadow: 0 0 0 3px rgba(0, 251, 255, 0.16);
+}
+
+.vx-status__action {
+  flex: none;
+  margin-inline-start: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--sc-accent);
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(0, 251, 255, 0.35);
+  border-radius: 4px;
+  transition: background-color 140ms linear, color 140ms linear;
+}
+@media (min-width: 800px) { .vx-status__action { margin-inline-start: 0; } }
+@media (hover: hover) and (pointer: fine) {
+  .vx-status__action:hover { background: var(--sc-accent); color: var(--sc-accent-ink); }
+}
+
+/* The subsystem rail is the navigation. Desktop only; below 1180 the status
+   bar and the document order carry it. */
+.vx-rail {
+  display: none;
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-start: clamp(0.75rem, 1.6vw, 1.5rem);
+  transform: translateY(-50%);
+  z-index: 70;
+}
+@media (min-width: 1180px) { .vx-rail { display: block; } }
+
+.vx-rail {
+  transition: opacity 260ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+              visibility 260ms linear;
+}
+.vx-rail.is-hidden { opacity: 0; visibility: hidden; }
+
+.vx-rail ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+
+.vx-rail a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.28rem 0.3rem;
+  text-decoration: none;
+  font-family: var(--vx-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+  transition: color 180ms linear;
+}
+.vx-rail a::before {
+  content: "";
+  width: 14px; height: 1px;
+  background: currentColor;
+  flex: none;
+  transition: width 220ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.vx-rail li.is-on a { color: var(--sc-accent); }
+.vx-rail li.is-on a::before { width: 26px; }
+@media (hover: hover) and (pointer: fine) {
+  .vx-rail a:hover { color: var(--sc-ink); }
+}
+
+.vx-console main { padding-block-start: var(--vx-status-h); }
+
+/* ------------------------------------------------------------ system boxes */
+
+.vx-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.85rem 0.9rem 0.8rem;
+  background: var(--sc-panel);
+  border: 1px solid var(--sc-hairline);
+  border-radius: 8px;
+  box-shadow: var(--sc-e1), var(--sc-edge);
+  transition: border-color 320ms linear, background-color 320ms linear,
+              box-shadow 320ms linear;
+}
+
+.vx-node__name {
+  font-family: var(--sc-font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.vx-node__name svg { width: 14px; height: 14px; flex: none; color: var(--sc-ink-faint); transition: color 320ms linear; }
+
+.vx-node__holds {
+  color: var(--sc-ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.vx-node__stamp {
+  font-family: var(--vx-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #FCA5A5;
+  border: 1px solid rgba(252, 165, 165, 0.28);
+  background: rgba(252, 165, 165, 0.06);
+  border-radius: 3px;
+  padding: 0.12rem 0.4rem;
+  align-self: flex-start;
+}
+
+.vx-node__out {
+  font-family: var(--vx-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--sc-ink-faint);
+  font-variant-numeric: tabular-nums;
+  min-height: 1.1em;
+  transition: color 320ms linear;
+}
+
+.vx-node.is-live {
+  border-color: rgba(0, 251, 255, 0.42);
+  background: #0C1729;
+  box-shadow: 0 0 0 1px rgba(0, 251, 255, 0.1), var(--sc-e2), var(--sc-edge);
+}
+.vx-node.is-live .vx-node__name svg { color: var(--sc-accent); }
+.vx-node.is-live .vx-node__out { color: var(--sc-accent); }
+.vx-node.is-live .vx-node__stamp {
+  color: var(--sc-accent);
+  border-color: rgba(0, 251, 255, 0.32);
+  background: rgba(0, 251, 255, 0.07);
+}
+
+/* islands grid — the hero's disconnected state */
+.vx-islands {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+/* On a phone the hero board keeps the system names and the re-key stamps and
+   drops the descriptions. The full text is in the ledger a screen below. */
+@media (max-width: 559px) {
+  .vx-islands .vx-node__holds { display: none; }
+  .vx-islands .vx-node { padding: 0.7rem 0.65rem; }
+  .vx-islands .vx-node__name { font-size: 0.82rem; }
+}
+@media (min-width: 560px) and (max-width: 1023px) {
+  .vx-islands { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.vx-panel {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--sc-hairline);
+  border-radius: 12px;
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  overflow: hidden;
+}
+
+.vx-panel__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.6rem 0.9rem;
+  border-block-end: 1px solid var(--sc-hairline);
+  background: rgba(2, 6, 23, 0.5);
+  font-family: var(--vx-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+.vx-panel__bar strong { color: var(--sc-ink-soft); font-weight: 600; }
+.vx-panel__body { padding: 0.9rem; }
+
+/* ------------------------------------------------------------------- hero */
+
+#surface .sc-stage,
+#wiring .sc-stage,
+#guarantees .sc-stage,
+#start .sc-stage {
+  display: flex;
+  align-items: center;
+  padding-block: 1.5rem;
+}
+
+.vx-hero {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3.25rem);
+  align-items: center;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .vx-hero { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); }
+}
+
+.vx-hero__title {
+  font-family: var(--sc-font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
+  text-wrap: balance;
+  margin: 0.7rem 0 0;
+  /* Workspace scale, not display scale. A 6rem headline breaks this grammar. */
+  font-size: clamp(2.05rem, 1.25rem + 3.1vw, 3.55rem);
+}
+.vx-hero__title em { font-style: normal; color: var(--sc-accent); }
+
+.vx-hero__sub {
+  margin: 1rem 0 0;
+  color: var(--sc-ink-soft);
+  font-size: clamp(0.98rem, 0.93rem + 0.24vw, 1.12rem);
+  line-height: 1.62;
+  max-width: 46ch;
+}
+
+.vx-hero__acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.5rem;
+  margin-block-start: 1.6rem;
+}
+
+/* ------------------------------------------------------- receipts readout */
+
+.vx-receipts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--sc-hairline);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.4);
+}
+@media (min-width: 800px) { .vx-receipts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.vx-receipt {
+  padding: 1.1rem 1.15rem 1.2rem;
+  border-inline-end: 1px solid var(--sc-hairline);
+  border-block-end: 1px solid var(--sc-hairline);
+}
+@media (min-width: 800px) {
+  .vx-receipt { border-block-end: 0; }
+  .vx-receipt:last-child { border-inline-end: 0; }
+}
+@media (max-width: 799px) {
+  .vx-receipt:nth-child(2n) { border-inline-end: 0; }
+  .vx-receipt:nth-last-child(-n + 2) { border-block-end: 0; }
+}
+
+.vx-receipt__v {
+  font-family: var(--sc-font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 1.4rem + 1.5vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--sc-accent);
+  font-variant-numeric: tabular-nums;
+  display: block;
+}
+.vx-receipt__l { display: block; margin-block-start: 0.55rem; font-weight: 600; font-size: 0.88rem; }
+.vx-receipt__d { display: block; margin-block-start: 0.2rem; color: var(--sc-ink-faint); font-size: 0.78rem; line-height: 1.45; }
+
+/* --------------------------------------------------------- systems ledger */
+
+.vx-ledger { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.vx-ledger caption { text-align: start; color: var(--sc-ink-faint); font-size: 0.8rem; padding-block-end: 0.75rem; }
+.vx-ledger th, .vx-ledger td { text-align: start; padding: 0.8rem 0.9rem; border-block-end: 1px solid var(--sc-hairline); vertical-align: top; }
+.vx-ledger thead th {
+  font-family: var(--vx-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+  font-weight: 500;
+  border-block-end-color: var(--sc-hairline-strong);
+}
+.vx-ledger tbody th { font-weight: 600; color: var(--sc-ink); white-space: nowrap; }
+.vx-ledger td { color: var(--sc-ink-soft); }
+.vx-ledger tbody tr:last-child th, .vx-ledger tbody tr:last-child td { border-block-end: 0; }
+.vx-ledger .vx-rk { color: #FCA5A5; font-family: var(--vx-mono); font-size: 0.72rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.vx-ledger--scroll { overflow-x: auto; }
+
+/* ------------------------------------------------------------ media plate */
+
+.vx-plate {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--sc-hairline);
+  background: var(--sc-panel);
+  box-shadow: var(--sc-e2);
+}
+.vx-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The four stills were graded warm-brass for the case-study page. Cooling
+     them keeps this page on one accent without regenerating anything. */
+  filter: saturate(0.55) hue-rotate(-12deg) contrast(1.04) brightness(0.92);
+}
+.vx-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.55));
+  pointer-events: none;
+}
+.vx-plate figcaption {
+  position: relative;
+  z-index: 1;
+  padding: 0.7rem 0.9rem;
+  border-block-start: 1px solid var(--sc-hairline);
+  background: rgba(2, 6, 23, 0.72);
+  font-family: var(--vx-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+
+.vx-two {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+@media (min-width: 900px) { .vx-two { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); } }
+
+/* ------------------------------------------------------- THE WIRING BOARD */
+
+#wiring { background: var(--sc-surface); }
+#wiring .vx-section, #wiring .sc-stage { background: transparent; }
+
+.vx-board { width: 100%; }
+
+.vx-board__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.1rem;
+  margin-block-end: 0.9rem;
+  font-family: var(--vx-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+.vx-board__head b { color: var(--sc-ink-soft); font-weight: 600; }
+.vx-board__head .vx-board__sample {
+  color: var(--sc-accent);
+  border: 1px solid rgba(0, 251, 255, 0.3);
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+}
+
+.vx-board__inner {
+  position: relative;
+  container-type: inline-size;
+}
+@media (min-width: 900px) { .vx-board__inner { aspect-ratio: 1000 / 520; } }
+
+.vx-board__wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  pointer-events: none;
+}
+@media (min-width: 900px) { .vx-board__wires { display: block; } }
+
+.vx-wire { fill: none; stroke: var(--sc-hairline); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.vx-wire--live {
+  stroke: url(#vxWireGrad);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--c, 0));
+}
+.vx-wire--pulse {
+  stroke: var(--sc-accent);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.035 0.965;
+  stroke-dashoffset: calc(0.035 - var(--flow, 0) * 1);
+  opacity: calc(var(--pulse, 0));
+  filter: drop-shadow(0 0 4px rgba(0, 251, 255, 0.7));
+}
+
+/* What travels down each cable is labelled inside the node it arrives at,
+   not along the cable. Text set on a curve collides with the boxes at either
+   end, and the same label then works unchanged on the mobile chain. */
+.vx-node__feed {
+  font-family: var(--vx-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+  opacity: 0.55;
+  transition: color 320ms linear, opacity 320ms linear;
+}
+.vx-node.is-live .vx-node__feed { color: var(--sc-accent); opacity: 1; }
+
+/* Desktop: absolutely positioned to match the SVG coordinate space exactly. */
+@media (min-width: 900px) {
+  .vx-board__nodes { position: absolute; inset: 0; }
+  .vx-board__nodes .vx-node { position: absolute; }
+  .vx-board__nodes .vx-node[data-slot="design"]     { left: 1%;  top: 30%;  width: 24%; height: 25%; }
+  .vx-board__nodes .vx-node[data-slot="quoting"]    { left: 37%; top: 4%;   width: 25%; height: 22%; }
+  .vx-board__nodes .vx-node[data-slot="production"] { left: 37%; top: 39%;  width: 25%; height: 22%; }
+  .vx-board__nodes .vx-node[data-slot="inventory"]  { left: 37%; top: 74%;  width: 25%; height: 22%; }
+  .vx-board__nodes .vx-node[data-slot="accounts"]   { left: 74%; top: 12%;  width: 25%; height: 22%; }
+  .vx-board__nodes .vx-node[data-slot="customer"]   { left: 74%; top: 62%;  width: 25%; height: 22%; }
+  .vx-board__inner .vx-node { padding: 0.7cqw 0.8cqw; gap: 0.35cqw; overflow: hidden; }
+  .vx-board__inner .vx-node__name { font-size: max(0.82rem, 1.5cqw); gap: 0.4cqw; }
+  .vx-board__inner .vx-node__name svg { width: max(12px, 1.4cqw); height: max(12px, 1.4cqw); }
+  .vx-board__inner .vx-node__holds { font-size: max(0.7rem, 1.2cqw); line-height: 1.42; }
+  .vx-board__inner .vx-node__out { font-size: max(0.68rem, 1.15cqw); margin-block-start: auto; }
+}
+
+/* Mobile: the board becomes a vertical chain. The cables are replaced by an
+   inline connector on each node, carrying the same labels, so the meaning
+   survives without the SVG. */
+@media (max-width: 899px) {
+  /* The board becomes a vertical chain. The cables are gone, but each node
+     still says what arrives in it and where from, so the meaning survives. */
+  .vx-board__nodes { display: grid; gap: 0.5rem; }
+  .vx-board__nodes .vx-node { position: relative; }
+  .vx-board__nodes .vx-node + .vx-node::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -0.5rem;
+    inset-inline-start: 1.4rem;
+    width: 1px;
+    height: 0.5rem;
+    background: var(--sc-hairline-strong);
+  }
+  .vx-board__nodes .vx-node.is-live + .vx-node::before { background: var(--sc-accent); }
+}
+
+/* the operable control */
+.vx-op {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.1rem;
+  margin-block-start: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--sc-hairline);
+  border-radius: 8px;
+  background: rgba(2, 6, 23, 0.55);
+  opacity: var(--op-in, 1);
+  transition: opacity 260ms linear;
+}
+.vx-op__label {
+  font-family: var(--vx-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+.vx-op__group { display: inline-flex; align-items: center; gap: 0.4rem; }
+.vx-op__group > .vx-op__label { margin-inline-end: 0.15rem; }
+
+.vx-step {
+  width: 1.9rem; height: 1.9rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--sc-hairline-strong);
+  background: var(--sc-panel);
+  color: var(--sc-ink);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: border-color 140ms linear, color 140ms linear, transform 110ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.vx-step:active { transform: translateY(1px); }
+@media (hover: hover) and (pointer: fine) {
+  .vx-step:hover { border-color: var(--sc-accent); color: var(--sc-accent); }
+}
+
+.vx-op input[type="number"] {
+  width: 6.5rem;
+  padding: 0.42rem 0.55rem;
+  background: var(--sc-panel);
+  border: 1px solid var(--sc-hairline-strong);
+  border-radius: 5px;
+  color: var(--sc-ink);
+  font-family: var(--vx-mono);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+.vx-op__qty {
+  min-width: 2.4ch;
+  text-align: center;
+  font-family: var(--vx-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sc-accent);
+  font-variant-numeric: tabular-nums;
+}
+.vx-op__note { color: var(--sc-ink-faint); font-size: 0.76rem; margin-inline-start: auto; }
+
+/* ------------------------------------------------------------ module rail */
+
+#modules .sc-stage { display: flex; align-items: center; }
+
+.vx-rail-track {
+  display: flex;
+  gap: 1rem;
+  padding-inline: var(--vx-gutter);
+  will-change: transform;
+}
+
+.vx-rail-lead, .vx-rail-tail {
+  flex: none;
+  width: clamp(16rem, 25vw, 23rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.vx-module {
+  flex: none;
+  width: clamp(15rem, 22vw, 21rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.4rem 1.3rem 1.3rem;
+  background: var(--sc-panel);
+  border: 1px solid var(--sc-hairline);
+  border-radius: 12px;
+  box-shadow: var(--sc-e2), var(--sc-edge);
+  text-decoration: none;
+  min-height: clamp(20rem, 34vw, 27rem);
+  transition: border-color 200ms linear, transform 220ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+@media (hover: hover) and (pointer: fine) {
+  .vx-module:hover { border-color: rgba(0, 251, 255, 0.4); transform: translateY(-3px); }
+}
+.vx-module__icon {
+  width: 2.4rem; height: 2.4rem;
+  display: grid; place-items: center;
+  border-radius: 7px;
+  background: rgba(0, 251, 255, 0.09);
+  border: 1px solid rgba(0, 251, 255, 0.22);
+  color: var(--sc-accent);
+}
+.vx-module__icon svg { width: 1.2rem; height: 1.2rem; }
+.vx-module__kind { font-family: var(--vx-mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sc-ink-faint); }
+.vx-module__name { font-family: var(--sc-font-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; margin: 0; }
+.vx-module__desc { color: var(--sc-ink-soft); font-size: 0.86rem; line-height: 1.58; margin: 0; }
+.vx-module__go { margin-block-start: auto; font-family: var(--vx-mono); font-size: 0.66rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--sc-accent); }
+
+/* staggered settle, exempting the first item */
+@media (prefers-reduced-motion: no-preference) {
+  .vx-rail-track > * + * {
+    opacity: calc(0.55 + 0.45 * clamp(0, (var(--sc-p, 0) - var(--i, 0) * 0.07) * 6, 1));
+    transform: translate3d(0, calc((1 - clamp(0, (var(--sc-p, 0) - var(--i, 0) * 0.07) * 6, 1)) * 10px), 0);
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ proof */
+
+/* The work index. One row per published engagement; the row shape is the same
+   whether there is one of them or ten, and a study with no cardImage simply
+   renders without a plate. */
+
+.vx-records {
+  border: 1px solid var(--sc-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.45);
+  box-shadow: var(--sc-e2);
+}
+
+.vx-rec {
+  display: grid;
+  gap: 1rem 1.4rem;
+  align-items: start;
+  padding: clamp(1.1rem, 2.6vw, 1.7rem);
+  border-block-end: 1px solid var(--sc-hairline);
+}
+@media (min-width: 800px) {
+  .vx-rec {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+.vx-rec__plate { margin: 0; aspect-ratio: 16 / 10; }
+.vx-rec__plate img { width: 100%; height: 100%; object-fit: cover; }
+
+.vx-rec__meta {
+  font-family: var(--vx-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+  margin: 0 0 0.5rem;
+}
+.vx-rec__body h3 { margin: 0; }
+.vx-rec__body h3 a { text-decoration: none; transition: color 150ms linear; }
+@media (hover: hover) and (pointer: fine) {
+  .vx-rec__body h3 a:hover { color: var(--sc-accent); }
+}
+
+.vx-rec__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin: 0.9rem 0 0;
+  color: var(--sc-ink-faint);
+}
+.vx-rec__status {
+  font-family: var(--vx-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+  border: 1px solid rgba(0, 251, 255, 0.3);
+  border-radius: 3px;
+  padding: 0.12rem 0.45rem;
+}
+
+.vx-rec__go { flex: none; white-space: nowrap; }
+
+.vx-rec__note {
+  margin: 0;
+  padding: 1rem clamp(1.1rem, 2.6vw, 1.7rem);
+  color: var(--sc-ink-faint);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  background: rgba(2, 6, 23, 0.45);
+}
+
+/* ------------------------------------------------------------- guarantees */
+
+/* Four controls that switch themselves on as the act advances.
+   They are NOT cued in: a cue leaves the panel reserving empty space for rows
+   that have not arrived, which reads as a page that failed to load. The rows
+   are always present and readable; what changes is the switch. */
+
+.vx-guard { display: grid; gap: 0.6rem; }
+.vx-guard__row {
+  --on: clamp(0, (var(--sc-p, 0) - var(--gi, 0) * 0.15) * 7, 1);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--sc-hairline);
+  border-radius: 9px;
+  background: rgba(11, 18, 32, 0.7);
+}
+.vx-guard__sw {
+  width: 2.2rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  position: relative;
+  flex: none;
+  margin-block-start: 0.15rem;
+  background: color-mix(in oklab, var(--sc-accent) calc(var(--on) * 20%), rgba(148, 166, 188, 0.12));
+  border: 1px solid
+    color-mix(in oklab, var(--sc-accent) calc(var(--on) * 50%), rgba(148, 166, 188, 0.26));
+}
+.vx-guard__sw::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 3px;
+  width: 0.78rem;
+  height: 0.78rem;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--sc-accent) calc(var(--on) * 100%), #556780);
+  transform: translateY(-50%) translateX(calc(var(--on) * 0.9rem));
+  box-shadow: 0 0 calc(var(--on) * 9px) rgba(0, 251, 255, 0.5);
+}
+.vx-guard__t { font-weight: 600; font-size: 0.98rem; margin: 0; }
+.vx-guard__d { color: var(--sc-ink-soft); font-size: 0.86rem; line-height: 1.6; margin: 0.3rem 0 0; }
+.vx-guard__state {
+  font-family: var(--vx-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+  margin-block-start: 0.45rem;
+  display: block;
+  opacity: var(--on);
+}
+.vx-guard__panel { max-width: 64rem; margin-inline: auto; }
+
+/* The panel bar reports what is actually switched on, driven off the same act
+   progress as the switches, so the readout can never contradict the rows. */
+.vx-guard__pips { display: inline-flex; align-items: center; gap: 0.3rem; }
+.vx-guard__pips i {
+  --on: clamp(0, (var(--sc-p, 0) - var(--gi, 0) * 0.15) * 7, 1);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid
+    color-mix(in oklab, var(--sc-accent) calc(var(--on) * 60%), rgba(148, 166, 188, 0.3));
+  background: color-mix(in oklab, var(--sc-accent) calc(var(--on) * 100%), transparent);
+  margin-inline-start: 0.15rem;
+}
+html:not(.vx-js) .vx-guard__pips i { --on: 1; }
+
+/* Without the engine there is no --sc-p, so every control shows its real
+   state rather than sitting permanently off. */
+html:not(.vx-js) .vx-guard__row { --on: 1; }
+
+/* -------------------------------------------------------------------- faq */
+
+.vx-faq { border-block-start: 1px solid var(--sc-hairline); }
+.vx-faq details { border-block-end: 1px solid var(--sc-hairline); }
+.vx-faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.1rem 2.5rem 1.1rem 0;
+  position: relative;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 150ms linear;
+}
+.vx-faq summary::-webkit-details-marker { display: none; }
+.vx-faq summary::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0.5rem;
+  inset-block-start: 1.45rem;
+  width: 9px; height: 9px;
+  border-inline-end: 1.5px solid var(--sc-ink-faint);
+  border-block-end: 1.5px solid var(--sc-ink-faint);
+  transform: rotate(45deg);
+  transition: transform 200ms var(--sc-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+.vx-faq details[open] summary::after { transform: rotate(225deg); }
+@media (hover: hover) and (pointer: fine) { .vx-faq summary:hover { color: var(--sc-accent); } }
+.vx-faq p { color: var(--sc-ink-soft); font-size: 0.92rem; line-height: 1.68; margin: 0 0 1.2rem; max-width: 72ch; }
+
+/* ------------------------------------------------------------------ close */
+
+#start { background: var(--sc-canvas); }
+
+.vx-start {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  width: 100%;
+  align-items: start;
+}
+@media (min-width: 960px) { .vx-start { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr); } }
+
+.vx-field { display: grid; gap: 0.4rem; }
+.vx-field label {
+  font-family: var(--vx-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+.vx-field input, .vx-field textarea {
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid var(--sc-hairline-strong);
+  border-radius: 6px;
+  color: var(--sc-ink);
+  font: inherit;
+  font-size: 0.92rem;
+  transition: border-color 140ms linear;
+}
+.vx-field textarea { resize: vertical; min-height: 6.5rem; }
+.vx-field input::placeholder, .vx-field textarea::placeholder { color: #475569; }
+.vx-field input:focus, .vx-field textarea:focus {
+  outline: none;
+  border-color: var(--sc-accent);
+  box-shadow: 0 0 0 3px rgba(0, 251, 255, 0.14);
+}
+.vx-grid2 { display: grid; gap: 0.85rem; }
+@media (min-width: 620px) { .vx-grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.vx-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.vx-error { color: #FCA5A5; font-size: 0.82rem; margin: 0; }
+
+.vx-ok {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.6rem 1.4rem;
+  border: 1px solid rgba(0, 251, 255, 0.32);
+  border-radius: 10px;
+  background: rgba(0, 251, 255, 0.05);
+}
+
+/* --------------------------------------------------------- reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-console * { transition-duration: 1ms !important; }
+  .vx-rail-track > * + * { opacity: 1 !important; transform: none !important; }
+  .vx-wire--live { stroke-dashoffset: 0 !important; }
+  .vx-wire--pulse { display: none; }
+  /* The switch knob's travel is a position change, so under reduced motion the
+     controls show their real state instead of sliding into it. */
+  .vx-guard__row, .vx-guard__pips i { --on: 1; }
+  .vx-wire__label { opacity: 1 !important; }
+}
+
+/* Engine-absent safety net: scrollcraft.css hides cued content until mount. */
+html:not(.vx-js) .vx-console [data-sc-cue] { opacity: 1 !important; transform: none !important; }
+
+/* ------------------------------------------------- chrome / stage geometry */
+
+/* The status bar owns the top 44px, so a sticky stage parks under it rather
+   than behind it, and anchors land below it. */
+.vx-console .sc-stage {
+  top: var(--vx-status-h);
+  height: calc(100svh - var(--vx-status-h));
+  box-sizing: border-box;
+}
+.vx-console main { padding-block-start: var(--vx-status-h); }
+
+/* The rail is fixed at the left edge, so the content column has to start clear
+   of it or the first line of every act reads through the labels. */
+@media (min-width: 1180px) {
+  .vx-console .vx-wrap { padding-inline-start: clamp(9rem, 11vw, 12rem); }
+  .vx-console .vx-rail-track { padding-inline-start: clamp(9rem, 11vw, 12rem); }
+}
+.vx-console [id] { scroll-margin-block-start: calc(var(--vx-status-h) + 0.75rem); }
+
+/* Before the engine sets it, a pinned section is only as tall as its stage.
+   That is the correct no-JS fallback: one screen, fully readable, no travel. */
+.vx-console [data-sc-act="pin"],
+.vx-console [data-sc-act="pan"] { position: relative; min-height: 100svh; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ------------------------------------------------------------ peak heading */
+
+.vx-peak-head {
+  display: grid;
+  gap: 0.55rem;
+  margin-block-end: clamp(0.9rem, 2vw, 1.6rem);
+  max-width: 62rem;
+}
+.vx-peak-head .vx-body { font-size: 0.95rem; max-width: 58ch; }
+
+/* Derive the board's width from the height actually available inside the
+   stage, so the whole board plus its heading and control row always fit
+   without the stage clipping them. */
+.vx-board__inner {
+  width: min(100%, max(26rem, calc((100svh - 22rem) * 1.923)));
+  margin-inline: auto;
+}
+@media (max-width: 899px) {
+  .vx-board__inner { width: 100%; }
+}
+
+/* --------------------------------------------------------------- figures */
+
+.vx-fig { margin: 0; }
+.vx-fig figcaption {
+  margin-block-start: 0.6rem;
+  font-family: var(--vx-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sc-ink-faint);
+}
+
+/* A parallax layer needs overshoot to move into, or the translate exposes the
+   frame edge. 8% each way covers the 60px of travel at rate 0.6. */
+.vx-plate--par { aspect-ratio: 4 / 3; }
+.vx-plate--par img {
+  position: absolute;
+  inset-block-start: -8%;
+  inset-inline: 0;
+  width: 100%;
+  height: 116%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* -------------------------------------------------------------- signature */
+
+.vx-who {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-block-start: 1.6rem;
+  padding-block-start: 1.3rem;
+  border-block-start: 1px solid var(--sc-hairline);
+}
+.vx-who img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--sc-hairline-strong);
+  flex: none;
+}
+.vx-who__n { margin: 0; font-weight: 600; font-size: 0.94rem; }
+.vx-who__r { margin: 0.15rem 0 0; color: var(--sc-ink-faint); font-size: 0.8rem; }
+
+/* ------------------------------------------------------------- proof bars */
+
+.vx-records .vx-panel__bar strong { color: var(--sc-accent); font-size: 0.85rem; }
+
+/* ------------------------------------------------------ engine-absent net */
+
+html:not(.vx-js) .vx-console [data-sc-in],
+html:not(.vx-js) .vx-console [data-sc-stagger] > * { opacity: 1; transform: none; }

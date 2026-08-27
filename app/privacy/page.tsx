@@ -3,9 +3,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Veloxa Technology",
+  title: "Privacy Policy | Veloxa",
   description:
-    "How Veloxa Technology collects, uses, and protects information submitted through our website.",
+    "How Veloxa collects, uses, and protects information submitted through our website.",
 };
 
 export default function PrivacyPage() {

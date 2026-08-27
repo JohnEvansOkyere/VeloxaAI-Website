@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Where are you based, and can you work with us remotely?",
     answer:
-      "Veloxa Technology Ltd is based in Accra, Ghana, and we work with clients internationally, async-first. For engagements where being physically present changes the outcome — factory floors, warehouses, clinics — we show up in person.",
+      "Veloxa is based in Accra, Ghana, and we work with clients internationally, async-first. For engagements where being physically present changes the outcome — factory floors, warehouses, clinics — we show up in person.",
   },
 ];
 

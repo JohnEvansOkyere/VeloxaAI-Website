@@ -24,17 +24,6 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="flex flex-col items-center text-center">
-          {/* Elite Badge */}
-          <div className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10 mb-10 animate-fade-in hover:bg-white/10 transition-colors cursor-default">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-cyan opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-cyan"></span>
-            </span>
-            <span className="text-[11px] font-bold text-white/80 tracking-[0.2em] uppercase">
-              Software engineering &amp; applied AI &middot; Accra, Ghana
-            </span>
-          </div>
-
           {/* Precision Typography Heading */}
           <h1 className="font-display font-black text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tighter animate-slide-up">
             Run your business <br />

@@ -32,7 +32,7 @@ export default function AboutUs() {
             A software engineering company, built in Accra.
           </h2>
           <p className="body-lg text-white/60 leading-relaxed">
-            Veloxa Technology Ltd designs and builds the software businesses run on &mdash; operations
+            Veloxa designs and builds the software businesses run on &mdash; operations
             platforms, internal systems, integrations and customer-facing products &mdash; with AI
             embedded where it genuinely earns its place. We work with manufacturers, service
             businesses and founders across Africa and abroad, and we take on the problems that
