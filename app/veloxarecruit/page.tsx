@@ -1,9 +1,40 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "VeloxaRecruit — AI-Powered Hiring Infrastructure",
+  description:
+    "VeloxaRecruit automates CV screening, AI voice and text interviews, and candidate scoring — 60-80% faster hiring with consistent, auditable decisions.",
+  alternates: { canonical: "/veloxarecruit" },
+  openGraph: {
+    type: "website",
+    title: "VeloxaRecruit — AI-Powered Hiring Infrastructure",
+    description:
+      "Automate CV screening, interviewing, and evaluation so your team can focus on decisions, not admin work.",
+    url: "/veloxarecruit",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "VeloxaRecruit",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "AI-powered hiring infrastructure: automated CV screening, voice and text interviews, and candidate analytics.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function VeloxaRecruitPage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}

@@ -31,7 +31,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-cyan"></span>
             </span>
             <span className="text-[11px] font-bold text-white/80 tracking-[0.2em] uppercase">
-              Trusted by Africa&apos;s most ambitious operators
+              Software engineering &amp; applied AI &middot; Accra, Ghana
             </span>
           </div>
 
@@ -43,8 +43,9 @@ export default function Hero() {
 
           {/* Refined Subheading */}
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mb-14 leading-relaxed font-medium animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Veloxa builds the AI workforce behind Africa&apos;s fastest-moving teams &mdash; hiring sharper, selling faster,
-            and serving customers around the clock. You ship the output of a thirty-person team with the agility of five.
+            Veloxa is a software engineering company. We build the operations platforms, internal systems and AI agents
+            behind Africa&apos;s fastest-moving teams &mdash; so you ship the output of a thirty-person team with the
+            agility of five.
           </p>
 
           {/* Premium CTA Logic */}
@@ -63,10 +64,10 @@ export default function Hero() {
             </a>
 
             <a
-              href="#testimonials"
+              href="#proof"
               className="group text-white/70 hover:text-white font-bold text-lg flex items-center gap-2 transition-colors"
             >
-              See customer stories
+              Read a real case study
               <span className="w-8 h-[1px] bg-white/20 group-hover:w-12 group-hover:bg-primary-cyan transition-all" />
             </a>
           </div>

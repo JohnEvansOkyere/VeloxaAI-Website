@@ -1,9 +1,40 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "WhatsApp Food Ordering — Your Digital Restaurant",
+  description:
+    "Automate takeout and delivery orders natively on WhatsApp. AI agents handle customer inquiries, share menu URLs, and dispatch instant receipts without human intervention.",
+  alternates: { canonical: "/whatsapp" },
+  openGraph: {
+    type: "website",
+    title: "WhatsApp Food Ordering — Your Digital Restaurant",
+    description:
+      "Transform WhatsApp into your digital restaurant with AI agents that take orders and send receipts.",
+    url: "/whatsapp",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "WhatsApp Food Ordering",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Restaurant ordering system on WhatsApp where AI agents take orders, share menu URLs, and send receipts.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function WhatsAppFoodPage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}

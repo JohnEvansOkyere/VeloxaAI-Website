@@ -1,9 +1,39 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "SmartMatch — AI Job Matching & Tailored CVs",
+  description:
+    "SmartMatch helps candidates discover the right roles and instantly generate CVs tailored to each opportunity, on your platform or anywhere on the web.",
+  alternates: { canonical: "/smartmatch" },
+  openGraph: {
+    type: "website",
+    title: "SmartMatch — AI Job Matching & Tailored CVs",
+    description:
+      "Personalized job recommendations and instant, tailored CV generation for candidates.",
+    url: "/smartmatch",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SmartMatch",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description: "AI job matching and tailored CV generation for candidates.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function SmartMatchPage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}
