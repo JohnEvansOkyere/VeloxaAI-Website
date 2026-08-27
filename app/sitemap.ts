@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
 
-const siteUrl = "https://veloxatech.tech";
+const siteUrl = "https://www.veloxatech.tech";
 
 // lastModified is set per route to the date that page's content actually
 // changed — using a fresh Date() on every build would falsely tell search
