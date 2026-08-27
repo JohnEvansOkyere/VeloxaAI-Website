@@ -18,18 +18,19 @@ export async function generateMetadata({
   const study = getCaseStudy(slug);
 
   if (!study) {
-    return { title: "Case study not found — Veloxa Technology" };
+    return { title: "Case study not found" };
   }
 
   return {
-    title: `${study.title} — Veloxa Technology`,
+    title: study.title,
     description: study.metaDescription,
     alternates: { canonical: `/work/${study.slug}` },
     openGraph: {
       type: "article",
-      title: `${study.title} — Veloxa Technology`,
+      title: study.title,
       description: study.metaDescription,
       url: `/work/${study.slug}`,
+      images: ["/opengraph-image"],
     },
   };
 }

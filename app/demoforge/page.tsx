@@ -1,9 +1,40 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "DemoForge — From Idea to Production-Ready Demo in Minutes",
+  description:
+    "A prototyping platform powered by Claude. Describe what you want to build, and DemoForge visualizes and generates a fully functional demo you can securely share or extract before committing.",
+  alternates: { canonical: "/demoforge" },
+  openGraph: {
+    type: "website",
+    title: "DemoForge — From Idea to Production-Ready Demo in Minutes",
+    description:
+      "Founders describe what they want to build, and DemoForge generates a working demo before full production.",
+    url: "/demoforge",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "DemoForge",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Web",
+  description:
+    "AI prototyping platform, powered by Claude, that turns a product idea into a working demo.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function DemoForgePage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}

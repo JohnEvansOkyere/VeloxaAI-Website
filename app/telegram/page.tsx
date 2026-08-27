@@ -1,9 +1,40 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Telegram Booking — Frictionless Appointment Scheduling",
+  description:
+    "Let customers book appointments directly through Telegram. Customer data is stored securely in Google Sheets and dates are logged automatically in Google Calendar.",
+  alternates: { canonical: "/telegram" },
+  openGraph: {
+    type: "website",
+    title: "Telegram Booking — Frictionless Appointment Scheduling",
+    description:
+      "A Telegram appointment system that stores customer data in Google Sheets and logs times in Calendar.",
+    url: "/telegram",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Telegram Booking",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Telegram appointment booking system with Google Sheets storage and Google Calendar logging.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function TelegramBookingPage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}

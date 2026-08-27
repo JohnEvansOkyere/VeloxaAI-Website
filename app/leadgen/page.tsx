@@ -1,9 +1,39 @@
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "LeadGen AI — Always-On Lead Generation",
+  description:
+    "LeadGen AI finds local businesses, learns who they are, and sends personalised outreach on your behalf, so your team wakes up to warm conversations instead of cold spreadsheets.",
+  alternates: { canonical: "/leadgen" },
+  openGraph: {
+    type: "website",
+    title: "LeadGen AI — Always-On Lead Generation",
+    description:
+      "Identify and qualify prospects with behavioral AI, and automate personalised outreach.",
+    url: "/leadgen",
+    images: ["/opengraph-image"],
+  },
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "LeadGen AI",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description: "AI-driven prospect identification, qualification, and personalised outreach.",
+  provider: { "@type": "Organization", name: "Veloxa Technology Ltd" },
+};
 
 export default function LeadGenPage() {
   return (
     <main className="min-h-screen bg-navy-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Navigation />
 
       {/* Hero */}
