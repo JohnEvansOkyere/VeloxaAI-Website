@@ -31,7 +31,7 @@ export default function PrivacyPage() {
                 infrastructure and automation products, including VeloxaRecruit,
                 SmartMatch, LeadGen AI, and SmartSupport. This policy explains how we
                 handle information collected through this website
-                (veloxatechnology.com and its subdomains).
+                (veloxatech.tech and its subdomains).
               </p>
             </section>
 

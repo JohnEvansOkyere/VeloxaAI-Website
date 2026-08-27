@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
 
-const siteUrl = "https://veloxatechnology.com";
+const siteUrl = "https://veloxatech.tech";
 
 const staticRoutes = [
   { path: "", priority: 1 },
