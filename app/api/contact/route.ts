@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Instantiate lazily inside the handler. The Resend constructor throws when no
+// API key is present, and Next.js imports this module during the build's
+// "collecting page data" step — where runtime secrets aren't available.
+let resend: Resend | null = null;
+function getResend() {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "hello@veloxarecruit.com";
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "Veloxa Website <onboarding@resend.dev>";
@@ -95,7 +104,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { error: sendError } = await resend.emails.send({
+    const { error: sendError } = await getResend().emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: email,
